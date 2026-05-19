@@ -28,7 +28,7 @@ require "settings/init.php";
 
 <body>
 
-<div class=" profile-page container py-4">
+<div class=" profile-page container pt-5">
     <div class="text-center mb-4 pt-4">
         <div class="mx-auto mb-4">
             <i class="fa-solid fa-user fa-2xl"></i>
@@ -38,14 +38,15 @@ require "settings/init.php";
     </div>
 </div>
 
-<div class="card profile-card mx-4 mt-5">
-    <div class="card-header text-center fw-bold py-3">
+<div class="card border-dark profile-card mx-4 mt-5">
+
+    <div class="card-header bg-transparent border-dark text-center fw-bold py-3">
         Profilindstillinger
     </div>
 
-    <ul class="list-group list-group-flush">
+    <div class="list-group list-group-flush">
 
-        <button class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-3"
+        <button class="list-group-item list-group-item-action bg-transparent text-dark d-flex justify-content-between align-items-center py-3"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#profileSubMenu"
@@ -55,9 +56,20 @@ require "settings/init.php";
             <i class="fa-solid fa-arrow-right"></i>
         </button>
 
-        <div></div>
+        <div class="collapse" id="profileSubMenu">
+        </div>
 
-    </ul>
+        <div id="notification" class="list-group-item bg-transparent text-dark d-flex justify-content-between align-items-center py-3">
+            <div>Notifikationer</div>
+            <div class="status text-muted">On</div>
+        </div>
+
+        <div class="list-group-item bg-transparent text-dark d-flex justify-content-between align-items-center py-3">
+            <div>Sprog</div>
+            <div class="text-muted">Dansk</div>
+        </div>
+
+    </div>
 
 </div>
 
@@ -72,7 +84,17 @@ include("includes/navbar.php" );
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+    document.getElementById('notification').addEventListener('click', function (){
+        const statusElement = this.querySelector('.status');
 
+        if (statusElement.textContent === 'On') {
+            statusElement.textContent = 'Off';
+        } else {
+            statusElement.textContent = 'On';
+        }
+    });
+</script>
 
 </body>
 </html>

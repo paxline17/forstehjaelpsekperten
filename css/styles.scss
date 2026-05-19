@@ -30,3 +30,11 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "bootstrapComponents";
 
 // 5. Du kan lave styling her...
+
+.fa-arrow-right{
+  transition: transform 0.2s ease-in-out;
+}
+
+[aria-expanded="true"] .fa-arrow-right{
+  transform: rotate(90deg);
+}
