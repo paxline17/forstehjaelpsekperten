@@ -3,6 +3,18 @@
 
 // 2. Include any default variable overrides here
 $link-decoration: none;
+$theme-colors:(
+        "primary": #027d7f,
+        "secondary": #850b2e,
+        "success": #247046,
+        "danger":  #C34646,
+        "warning":#D9A843,
+        "info": #4A8BC0,
+        "dark": #0D0C0C,
+        "light": #FFFFFF,
+
+);
+
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "../node_modules/bootstrap/scss/variables";
@@ -10,7 +22,7 @@ $link-decoration: none;
 
 // 4. Include any default map overrides here
 $custom-colors: (
-	"farve": $cyan-400,
+        "lightgray": #EDEDED,
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
