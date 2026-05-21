@@ -38,3 +38,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 [aria-expanded="true"] .rotate-icon{
   transform: rotate(90deg);
 }
+
+.cursor-pointer{
+  cursor: pointer;
+}
