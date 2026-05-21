@@ -45,8 +45,17 @@ require "settings/init.php";
           </a>
 </div>
 </div>
-</div>
 
+
+<a href="#vendespil" class="text-decoration-none text-dark d-flex justify-content-between align-items-center border border-dark bg-white pt-3 mt-3">
+    <div>
+        <p class="mb-0 small">Forstæt hvor du slap:</p>
+        <p class="mb-0 small">Vendespil</p>
+    </div>
+
+</a>
+
+</div>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
