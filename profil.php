@@ -26,55 +26,93 @@ require "settings/init.php";
 
 </head>
 
-<body>
+<body class="bg-light">
 
-<div class=" profile-page container pt-5">
-    <div class="text-center mb-4 pt-4">
+<div class="container pt-4">
+
+    <div class="text-center mb-4 mt-4">
         <div class="mx-auto mb-4">
-            <i class="fa-solid fa-user fa-2xl"></i>
+            <i class="fa-solid fa-user fa-2xl mb-3"></i>
         </div>
-        <h5 class="fw-bold">Emil Østergaard</h5>
+        <h5 class="fw-bold mb-1">Emil Østergaard</h5>
         <p class="text-muted small">Emil.oest@mail.dk | +45 52 40 18 39</p>
     </div>
-</div>
 
-<div class="card border-dark profile-card mx-4 mt-5">
+    <div class="row g-4">
 
-    <div class="card-header bg-transparent border-dark text-center fw-bold py-3">
-        Profilindstillinger
+        <div class="col-12 col-md-6 order-1 order-md-1">
+            <div class="card border-dark h-100">
+
+                <div class="card-header text-center fw-bold">
+                    Profilindstillinger
+                </div>
+
+                <div class="list-group list-group-flush">
+
+                    <button class="list-group-item list-group-item-action bg-transparent text-dark d-flex justify-content-between align-items-center"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#editProfile"
+                        <span>Ændre profil</span>
+                        <i class="fa-solid fa-arrow-right rotate-icon"></i>
+                    </button>
+
+                    <div class="collapse" id="editProfile"></div>
+
+                    <div id="notification" class="list-group-item bg-transparent text-dark d-flex justify-content-between align-items-center py-3">
+                        <span>Notifikationer</span>
+                        <span class="status text-muted">On</span>
+                    </div>
+
+                    <div class="list-group-item bg-transparent text-dark d-flex justify-content-between align-items-center py-3">
+                        <span>Sprog</span>
+                        <span class="text-muted">Dansk</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 order-2 order-md-3">
+            <div class="card border-dark h-100 mt-2 mb-2">
+                <div class="list-group-item d-flex justify-content-between py-3 p-2">
+                    <span>Tema</span>
+                    <div>
+                        <i class="fa-regular fa-sun me-3"></i>
+                        <i class="fa-regular fa-moon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 order-3 order-md-2">
+            <div class="card border-dark h-100">
+                <div class="card-header text-center fw-bold">
+                    Support og info
+                </div>
+
+                <div class="list-group list-group-flush">
+
+                    <button class="list-group-item list-group-item-action bg-transparent text-dark d-flex justify-content-between align-items-center"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#contactUs"
+                    <span>Kontakt os</span>
+                    <i class="fa-solid fa-arrow-right rotate-icon"></i>
+                    </button>
+
+                    <div class="collapse" id="contactUs"></div>
+
+                    <button class="list-group-item list-group-item-action bg-transparent text-dark d-flex justify-content-between align-items-center"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#points"
+                    <span>Point</span>
+                    <i class="fa-solid fa-arrow-right rotate-icon"></i>
+                    </button>
+
+                    <div class="collapse" id="points"></div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="list-group list-group-flush">
-
-        <button class="list-group-item list-group-item-action bg-transparent text-dark d-flex justify-content-between align-items-center py-3"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#profileSubMenu"
-        aria-expanded="false"
-        aria-controls="profileSubMenu">
-        <div>Ændre profil</div>
-            <i class="fa-solid fa-arrow-right"></i>
-        </button>
-
-        <div class="collapse" id="profileSubMenu">
-        </div>
-
-        <div id="notification" class="list-group-item bg-transparent text-dark d-flex justify-content-between align-items-center py-3">
-            <div>Notifikationer</div>
-            <div class="status text-muted">On</div>
-        </div>
-
-        <div class="list-group-item bg-transparent text-dark d-flex justify-content-between align-items-center py-3">
-            <div>Sprog</div>
-            <div class="text-muted">Dansk</div>
-        </div>
-
-    </div>
-
 </div>
-
-
-
 
 
 <?php

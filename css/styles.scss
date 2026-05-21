@@ -31,10 +31,10 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 
 // 5. Du kan lave styling her...
 
-.fa-arrow-right{
+.rotate-icon{
   transition: transform 0.2s ease-in-out;
 }
 
-[aria-expanded="true"] .fa-arrow-right{
+[aria-expanded="true"] .rotate-icon{
   transform: rotate(90deg);
 }
