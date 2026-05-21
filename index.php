@@ -49,12 +49,12 @@ require "settings/init.php";
 </div>
 
 
-<a href="#vendespil" class="text-decoration-none text-dark d-flex justify-content-between align-items-center border border-dark bg-white pt-3 mt-3 p-3 mx-5">
+<a href="#vendespil" class="text-decoration-none text-dark d-flex justify-content-between align-items-center border border-dark bg-white pt-3 mt-3 p-2 mx-5 pb-1">
     <div>
         <p class="mb-0 small">Forstæt hvor du slap:</p>
-        <p class="mb-0 small mt-1">Vendespil</p>
+        <p class="mb-0 small mt-2">Vendespil</p>
     </div>
-
+<i class="fa-solid fa-arrow-right align-self-end"></i>
 </a>
 
 </div>
