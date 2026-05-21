@@ -15,7 +15,9 @@ require "settings/init.php";
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
     <meta name="copyright" content="Information om copyright">
-    
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 
     <script src="https://kit.fontawesome.com/5458120b39.js" crossorigin="anonymous"></script>
@@ -47,7 +49,7 @@ require "settings/init.php";
 </div>
 
 
-<a href="#vendespil" class="text-decoration-none text-dark d-flex justify-content-between align-items-center border border-dark bg-white pt-3 mt-3">
+<a href="#vendespil" class="text-decoration-none text-dark d-flex justify-content-between align-items-center border border-dark bg-white pt-3 mt-3 p-3">
     <div>
         <p class="mb-0 small">Forstæt hvor du slap:</p>
         <p class="mb-0 small">Vendespil</p>
