@@ -29,7 +29,7 @@ require "settings/init.php";
 
 <p class="text-center mb-3">Akutte guides</p>
 
-<div class="row g-3 mb-4">
+<div class="row g-3 mb-4 justify-content-center">
 
 <div class="col-4">
     <a href="#hjertestop" class="text-decoration-none text-dark text-center border border-dark d-block bg-white">
