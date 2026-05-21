@@ -30,3 +30,15 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "bootstrapComponents";
 
 // 5. Du kan lave styling her...
+
+.rotate-icon{
+  transition: transform 0.2s ease-in-out;
+}
+
+[aria-expanded="true"] .rotate-icon{
+  transform: rotate(90deg);
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
