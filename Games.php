@@ -49,29 +49,57 @@ require "settings/init.php";
             </div>
         </div>
 
-        <div class="game-board" id="gameBoard">
-            <div class="card memoryCard flipped">
-               <div class="card-front"><i class="fas fa-heart"></i></div>
-                <div class="card-back"><img src="" alt=""></div>
-            </div>
-        </div>
+        <div class="game-board" id="gameBoard"></div>
 
         <div class="controls">
-            <button class="btn" onclick="newGame()">
+            <button class="btn memoryBtn" onclick="newGame()">
             <i class="fas fa-redo"></i> Nyt spil
             </button>
         </div>
     </div>
 
 
-    <div class="modal" id="winModal">
+    <div class="modal memoryModal" id="winModal">
         <div class="modal-content">
             <h2 class="memoryH2"><i class="fas fa-trophy"></i>Du vinder!</h2><i class="fas fa-trophy"></i>
             <p>Forsøg: <span id="finalMoves"></span></p><br><p>Tid: <span id="finalTime"></span></p>
-            <button class="btn" onclick="newGame()">Spil igen</button>
+            <button class="btn memoryBtn" onclick="newGame()">Spil igen</button>
         </div>
     </div>
 
+
+    <script>
+        const memoryCardHTML = '<div class="card-front"><i class="fas fa-heart"></i></div>
+            <div class="card-back"><img src="" alt=""></div>'
+
+
+        var images = [
+            "https://unsplash.com/photos/orange-erste-hilfe-med-kit-j-ped4HD32Q",
+            "https://unsplash.com/photos/person-with-band-aid-on-middle-finger-SwWjCbIIoFE",
+            "https://unsplash.com/photos/man-in-white-t-shirt-and-blue-pants-sitting-on-floor-8ByBvAXwFEc",
+            "https://unsplash.com/photos/white-and-black-earbuds-on-white-textile-S1v7hVUiCg0",
+            "https://unsplash.com/photos/a-fire-hydrant-mounted-to-the-side-of-a-building-t5rm4f-HYmY",
+            "https://unsplash.com/photos/human-x-ray-result-chart-ouyjDk-KdfY",
+            "https://unsplash.com/photos/green-tree-on-grassland-during-daytime-EPy0gBJzzZU",
+        ];
+
+        var firstCard = null
+        var secondCard = null
+        var canFlip = true
+        var matches = 0
+        var moves = 0
+        var seconds = 0
+        var timeRunning = false
+        var timerInterval;
+
+        function startGame{
+            var gameBoard = document.getElementById("gameBoard")
+            gameBoard.innerHTML = ""
+
+            var card
+        }
+
+    </script>
 
 
 </body>
