@@ -49,7 +49,12 @@ require "settings/init.php";
             </div>
         </div>
 
-        <div class="game-board" id="gameBoard"></div>
+        <div class="game-board" id="gameBoard">
+            <div class="card memoryCard flipped">
+               <div class="card-front"><i class="fas fa-heart"></i></div>
+                <div class="card-back"><img src="" alt=""></div>
+            </div>
+        </div>
 
         <div class="controls">
             <button class="btn" onclick="newGame()">
