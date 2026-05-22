@@ -22,6 +22,15 @@ require "settings/init.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
+<div class="container">
+    <h1 class="text-center fw-bold mb-2">Kursusoversigtigt</h1>
+    <p class="text-center mb-2">Alle kurser kan gennemføres på dansk og engelsk</p>
+
+</div>
+
+
+
+
 <body>
 
 
