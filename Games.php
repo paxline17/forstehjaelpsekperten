@@ -34,17 +34,17 @@ require "settings/init.php";
            <div class="stats">
                 <div class="stat">
                     <div class="stat-label">Forsøg</div>
-                    <div class="stat-value">0</div>
+                    <div class="stat-value" id="moves">0</div>
                 </div>
 
                 <div class="stat">
                     <div class="stat-label">Tid</div>
-                    <div class="stat-value">0:00</div>
+                    <div class="stat-value" id="time">0:00</div>
                 </div>
 
                 <div class="stat">
                     <div class="stat-label">Par</div>
-                    <div class="stat-value">0/9</div>
+                    <div class="stat-value" id="matches">0/9</div>
                 </div>
             </div>
         </div>
@@ -69,18 +69,15 @@ require "settings/init.php";
 
 
     <script>
-        const memoryCardHTML = '<div class="card-front"><i class="fas fa-heart"></i></div>
-            <div class="card-back"><img src="" alt=""></div>'
-
-
         var images = [
-            "https://unsplash.com/photos/orange-erste-hilfe-med-kit-j-ped4HD32Q",
-            "https://unsplash.com/photos/person-with-band-aid-on-middle-finger-SwWjCbIIoFE",
-            "https://unsplash.com/photos/man-in-white-t-shirt-and-blue-pants-sitting-on-floor-8ByBvAXwFEc",
-            "https://unsplash.com/photos/white-and-black-earbuds-on-white-textile-S1v7hVUiCg0",
-            "https://unsplash.com/photos/a-fire-hydrant-mounted-to-the-side-of-a-building-t5rm4f-HYmY",
-            "https://unsplash.com/photos/human-x-ray-result-chart-ouyjDk-KdfY",
-            "https://unsplash.com/photos/green-tree-on-grassland-during-daytime-EPy0gBJzzZU",
+            'https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=400',
+            'https://images.unsplash.com/photo-1548681528-6a5c45b66b42?w=400',
+            'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?w=400',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=400',
+            'https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=400',
+            'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400',
+            'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=400',
+            'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400'
         ];
 
         var firstCard = null
@@ -89,15 +86,126 @@ require "settings/init.php";
         var matches = 0
         var moves = 0
         var seconds = 0
-        var timeRunning = false
+        var timerRunning = false
         var timerInterval;
 
-        function startGame{
+        function startGame(){
             var gameBoard = document.getElementById("gameBoard")
             gameBoard.innerHTML = ""
 
-            var card
+            var cardImages = images.concat(images)
+
+            cardImages.sort(function(){
+                return Math.random() - 0.5
+            })
+
+            for (var i = 0; i < cardImages.length; i++) {
+                var card = document.createElement('div');
+                card.className = 'memoryCard';
+                card.innerHTML = '<div class="card-front"><i class="fas fa-heart"></i></div>' +
+                    '<div class="card-back"><img src="' + cardImages[i] + '"></div>';
+                card.onclick = flipCard;
+                card.dataset.image = cardImages[i];
+                gameBoard.appendChild(card);
+            }
+
+            firstCard = null;
+            secondCard = null;
+            canFlip = true;
+            matches = 0;
+            moves = 0;
+            seconds = 0;
+            timerRunning = false;
+
+            updateStarts();
+            clearInterval(timerInterval);
         }
+
+        function flipCard(){
+            if (!canFlip) return;
+            if (this.classList.contains('flipped')) return;
+            if (this.classList.contains('matched')) return;
+
+            if (!timerRunning){
+                startTimer();
+            }
+
+            this.classList.add('flipped');
+
+            if (firstCard == null){
+                firstCard = this;
+            } else {
+                secondCard = this;
+                canFlip = false;
+                moves++;
+                updateStarts();
+                checkMatch();
+            }
+        }
+
+        function checkMatch(){
+            var match = firstCard.dataset.image == secondCard.dataset.image;
+
+            if (match){
+                setTimeout(function(){
+                    firstCard.classList.add('matched');
+                    secondCard.classList.add('matched');
+                    matches++;
+                    updateStarts();
+                    resetCards();
+
+                    if (matches == 8){
+                        endGame();
+                    }
+                }, 500);
+            } else {
+                setTimeout(function (){
+                    firstCard.classList.remove('flipped');
+                    secondCard.classList.remove('flipped');
+                    resetCards();
+                }, 1000);
+            }
+        }
+
+        function resetCards(){
+            firstCard = null;
+            secondCard = null;
+            canFlip = true;
+        }
+
+        function startTimer(){
+            timerRunning = true;
+            timerInterval = setInterval(function (){
+                seconds++;
+                updateStarts();
+            }, 1000);
+        }
+
+
+        function updateStarts(){
+            document.getElementById('moves').textContent = moves;
+            document.getElementById('matches').textContent = matches + '/8';
+
+            var mins = Math.floor(seconds / 60);
+            var secs = seconds % 60;
+            if (secs < 10) secs = '0' + secs;
+            document.getElementById('time').textContent = mins + ':' + secs;
+        }
+
+        function endGame(){
+            clearInterval(timerInterval);
+            document.getElementById('finalMoves').textContent = moves;
+            document.getElementById('finalTime').textContent = document.getElementById('time').textContent;
+            document.getElementById('winModal').classList.add('show');
+        }
+
+        function newGame(){
+            document.getElementById('winModal').classList.remove('show');
+            clearInterval(timerInterval);
+            startGame();
+        }
+
+        startGame();
 
     </script>
 
