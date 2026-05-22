@@ -30,7 +30,7 @@ require "settings/init.php";
 
 <div class="container pt-4">
 
-    <div class="text-center mb-4 mt-4">
+    <div class="text-center mb-4 mt-4 pb-3 pt-3">
         <div class="mx-auto mb-2 fs-2">
             <i class="fa-solid fa-user fa-2xl mb-3"></i>
         </div>
@@ -95,7 +95,19 @@ require "settings/init.php";
 
                     <div class="list-group-item bg-transparent text-dark d-flex justify-content-between align-items-center py-3">
                         <span>Sprog</span>
-                        <span class="text-muted">Dansk</span>
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-light bor' dropdown-toggle text-muted fw-medium"
+                            type="button"
+                            id="languageDropdown"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                                Dansk
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-light-subtle" aria-labelledby="languageDropdown">
+                                <li><a class="dropdown-item small cursor-pointer lang-option" href="#">Dansk</a></li>
+                                <li><a class="dropdown-item small cursor-pointer lang-option" href="#">Engelsk</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -105,12 +117,12 @@ require "settings/init.php";
             <div class="card rounded-3 border-light-subtle shadow-sm">
                 <div class="card-body d-flex justify-content-between align-items-center py-3">
                     <span>Tema</span>
-                    <div class="d-flex align-items-center text-lightgray py-1">
-                        <i class="fa-regular fa-sun fs-5 cursor-pointer me-3"></i>
+                    <div class="d-flex align-items-center py-1">
+                        <i id="themeLight" class="fa-regular fa-sun fs-5 cursor-pointer me-3 text-dark"></i>
 
-                        <div class="vr opacity-50 py-2"></div>
+                        <div class="vr opacity-75 py-2"></div>
 
-                        <i class="fa-regular fa-moon fs-5 cursor-pointer ms-3"></i>
+                        <i id="themeDark" class="fa-regular fa-moon fs-5 cursor-pointer ms-3 text-muted"></i>
                     </div>
                 </div>
             </div>
@@ -202,6 +214,28 @@ include("includes/navbar.php" );
         if(confirm("Er du sikker på, at di vil slette din profil? Dette kan ikke fortrydes.")){
             alert("Profil markeret som slettet!");
         }
+    });
+
+    document.querySelectorAll('.lang-option').forEach(option => {
+        option.addEventListener('click', function (e){
+            e.preventDefault();
+
+            const selectedLanguage = this. textContent;
+            document.getElementById('languageDropdown').textContent = selectedLanguage;
+        });
+    });
+
+    const sunIcon = document.getElementById('themeLight');
+    const moonIcon = document.getElementById('themeDark');
+
+    sunIcon.addEventListener('click', function (){
+        sunIcon.classList.replace('text-muted', 'text-dark');
+        moonIcon.classList.replace('text-dark', 'text-muted');
+    });
+
+    moonIcon.addEventListener('click', function (){
+        moonIcon.classList.replace('text-muted', 'text-dark');
+        sunIcon.classList.replace('text-dark', 'text-muted');
     });
 
 </script>
