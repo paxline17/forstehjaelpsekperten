@@ -47,6 +47,13 @@ body{
   font-family: "Roboto Light", "sans-serif";
 }
 
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
+}
+
 .memoryContainer{
   max-width: 900px;
   margin: 0 auto;
@@ -190,7 +197,7 @@ body{
   align-items: center;
 }
 
-.memoryModal .show{
+.memoryModal.show{
   display: flex;
 }
 

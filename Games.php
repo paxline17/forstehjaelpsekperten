@@ -26,49 +26,96 @@ require "settings/init.php";
 
 </head>
 
-<body>
+<body class="bg-light d-flex flex-column min-vh-100">
 
-    <div class="container memoryContainer">
-        <div  class="header memoryHeader">
-            <h1 class="memoryH1"><i class="fas fa-star"></i> Vendespil <i class="fas fa-star"></i></h1>
-           <div class="stats">
-                <div class="stat">
-                    <div class="stat-label">Forsøg</div>
-                    <div class="stat-value" id="moves">0</div>
+    <div class="container app-container my-3 flex-grow-1">
+
+        <div id="page-menu" class="page active">
+            <h1 class="text-center fw-bold my-4">Spil</h1>
+            <div class="row g-3 px-2">
+
+                <div class="col-12 col-md-6">
+                    <div class="bg-white border border-lightgray rounded-1 d-flex justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer" onclick="navigateTo('page-game'); newGame();">
+                        <span class="fw-bold text-dark fs-5 text-center px-2">Vendespil</span>
+                    </div>
                 </div>
 
-                <div class="stat">
-                    <div class="stat-label">Tid</div>
-                    <div class="stat-value" id="time">0:00</div>
+                <div class="col-12 col-md-6">
+                    <div class="bg-white border border-lightgray rounded-1 d-flex justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer">
+                        <span class="fw-bold text-dark fs-5 text-center px-2">Match to ord</span>
+                    </div>
                 </div>
 
-                <div class="stat">
-                    <div class="stat-label">Par</div>
-                    <div class="stat-value" id="matches">0/9</div>
+                <div class="col-12 col-md-6">
+                    <div class="bg-white border border-lightgray rounded-1 d-flex justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer">
+                        <span class="fw-bold text-dark fs-5 text-center px-2">Kommer snart</span>
+                    </div>
                 </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="bg-white border border-lightgray rounded-1 d-flex justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer">
+                        <span class="fw-bold text-dark fs-5 text-center px-2">Kommer snart</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="page-game" class="page">
+            <div class="d-flex justify-content-between align-items-center mb-3 px-2">
+                <button class="btn btn-link link-dark fs-4 p-1" onclick="navigateTo('page-menu')">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <button class="btn-link link-dark fs-4 p-1">
+                    <i class="fas fa-info-circle"></i>
+                </button>
+            </div>
+
+
+        <div class="memoryHeader text-center bg-white p-3 mb-4 mx-auto">
+            <h1 class="memoryH1 fw-bold fs-3 mb-3"><i class="fas fa-star"></i> Vendespil <i class="fas fa-star"></i></h1>
+
+            <div class="d-flex justify-content-center gap-2">
+                <div class="stat stats-box border border-2 rounded-4 text-center px-3 py-2">
+                    <div class="stat-label small opacity-75">Forsøg</div>
+                    <div class="stat-value fw-bold" id="moves">0</div>
+                </div>
+
+                <div class="stat stats-box border border-2 rounded-4 text-center px-3 py-2">
+                    <div class="stat-label small opacity-75">Tid</div>
+                    <div class="stat-value fw-bold" id="time">0:00</div>
+                </div>
+            </div>
+
+            <div class="stat stats-box border border-2 rounded-4 text-center px-3 py-2">
+                <div class="stat-label small opacity-75">Par</div>
+                <div class="stat-value fw-bold" id="matches">0/8</div>
             </div>
         </div>
 
         <div class="game-board" id="gameBoard"></div>
-
-        <div class="controls">
-            <button class="btn memoryBtn" onclick="newGame()">
-            <i class="fas fa-redo"></i> Nyt spil
-            </button>
-        </div>
+    </div>
     </div>
 
+    <?php
+    include("includes/navbar.php" );
+    ?>
 
-    <div class="modal memoryModal" id="winModal">
-        <div class="modal-content">
-            <h2 class="memoryH2"><i class="fas fa-trophy"></i>Du vinder!</h2><i class="fas fa-trophy"></i>
-            <p>Forsøg: <span id="finalMoves"></span></p><br><p>Tid: <span id="finalTime"></span></p>
-            <button class="btn memoryBtn" onclick="newGame()">Spil igen</button>
+
+
+    <div class="modal fade" id="winModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <h2 class="fw-bold mb-4"><i class="fas fa-trophy"></i>Du vinder!<i class="fas fa-trophy"></i></h2>
+            <p class="mb-2">Forsøg: <span id="finalMoves"></span></p><br><p class="mb-4">Tid: <span id="finalTime"></span></p>
+            <button class="btn memoryBtn px-4 py-2 mx-auto" onclick="newGame()" data-bs-dismiss="modal">Spil igen</button>
         </div>
     </div>
 
 
     <script>
+
+        var winModal;
+
         var images = [
             'https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=400',
             'https://images.unsplash.com/photo-1548681528-6a5c45b66b42?w=400',
@@ -89,15 +136,20 @@ require "settings/init.php";
         var timerRunning = false
         var timerInterval;
 
+       function navigateTo(pageId){
+           document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+           document.getElementById(pageId).classList.add('active');
+           if (pageId === 'page-menu'){
+               clearInterval(timerInterval);
+               timerRunning = false;
+           }
+       }
+
         function startGame(){
-            var gameBoard = document.getElementById("gameBoard")
-            gameBoard.innerHTML = ""
-
-            var cardImages = images.concat(images)
-
-            cardImages.sort(function(){
-                return Math.random() - 0.5
-            })
+            const gameBoard = document.getElementById("gameBoard")
+            gameBoard.innerHTML = "";
+            let cardImages = images.concat(images);
+            cardImages.sort(() => Math.random() - 0.5);
 
             for (var i = 0; i < cardImages.length; i++) {
                 var card = document.createElement('div');
@@ -192,15 +244,19 @@ require "settings/init.php";
             document.getElementById('time').textContent = mins + ':' + secs;
         }
 
+        document.addEventListener("DOMContentLoaded", function() {
+            winModal = new bootstrap.Modal(document.getElementById('winModal'));
+        });
+
         function endGame(){
             clearInterval(timerInterval);
             document.getElementById('finalMoves').textContent = moves;
             document.getElementById('finalTime').textContent = document.getElementById('time').textContent;
-            document.getElementById('winModal').classList.add('show');
+            winModal.show();;
         }
 
         function newGame(){
-            document.getElementById('winModal').classList.remove('show');
+            winModal.hide();
             clearInterval(timerInterval);
             startGame();
         }
