@@ -11,14 +11,13 @@ require "settings/init.php";
 <head>
     <meta charset="utf-8">
 
-    <title>Sigende titel</title>
+    <title>Kursusoversigtigt</title>
 
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
     <meta name="copyright" content="Information om copyright">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 
     <script src="https://kit.fontawesome.com/5458120b39.js" crossorigin="anonymous"></script>
