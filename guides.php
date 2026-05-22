@@ -92,12 +92,12 @@ require "settings/init.php";
             </div>
         </div>
 
-<div class="container my-2">
-    <div class="row row-cols-2 g-4 justify-content-center" style="max-width: 450px; margin: 0 auto;">
+<div class="container my-4">
+    <div class="row row-cols-2 row-cols-md-4 g-4 justify-content-center">
 
         <div class="col">
             <div class="ratio ratio-1x1">
-                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark rounded p-3" style="cursor: pointer;">
+                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark py-4 py-md-5 px-3 h-100" style="cursor: pointer;">
                     <i class="fas fa-heartbeat text-dark mb-2" style="font-size: 2.8rem;"></i>
                     <p class="fw-bold text-dark m-0" style="font-size: 1rem;">Hjertestop</p>
                 </div>
@@ -106,7 +106,7 @@ require "settings/init.php";
 
         <div class="col">
             <div class="ratio ratio-1x1">
-                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark rounded p-3" style="cursor: pointer;">
+                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark py-4 py-md-5 px-3 h-100" style="cursor: pointer;">
                     <i class="fas fa-head-side-cough text-dark mb-2" style="font-size: 2.8rem;"></i>
                     <p class="fw-bold text-dark m-0" style="font-size: 1rem;">Kvælning</p>
                 </div>
@@ -115,7 +115,7 @@ require "settings/init.php";
 
         <div class="col">
             <div class="ratio ratio-1x1">
-                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark rounded p-3" style="cursor: pointer;">
+                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark py-4 py-md-5 px-3 h-100" style="cursor: pointer;">
                     <i class="fas fa-fire text-dark mb-2" style="font-size: 2.8rem;"></i>
                     <p class="fw-bold text-dark m-0" style="font-size: 1rem;">Forbrænding</p>
                 </div>
@@ -124,7 +124,7 @@ require "settings/init.php";
 
         <div class="col">
             <div class="ratio ratio-1x1">
-                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark rounded p-3" style="cursor: pointer;">
+                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark py-4 py-md-5 px-3 h-100" style="cursor: pointer;">
                     <i class="fas fa-tint text-dark mb-2" style="font-size: 2.8rem;"></i>
                     <p class="fw-bold text-dark m-0" style="font-size: 1rem;">Blødning</p>
                 </div>
@@ -133,7 +133,7 @@ require "settings/init.php";
 
         <div class="col">
             <div class="ratio ratio-1x1">
-                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark rounded p-3" style="cursor: pointer;">
+                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark py-4 py-md-5 px-3 h-100" style="cursor: pointer;">
                     <i class="fas fa-user-slash text-dark mb-2" style="font-size: 2.8rem;"></i>
                     <p class="fw-bold text-dark m-0" style="font-size: 1rem;">Bevidstløshed</p>
                 </div>
@@ -142,7 +142,7 @@ require "settings/init.php";
 
         <div class="col">
             <div class="ratio ratio-1x1">
-                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark rounded p-3" style="cursor: pointer;">
+                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark py-4 py-md-5 px-3 h-100" style="cursor: pointer;">
                     <i class="fas fa-bone text-dark mb-2" style="font-size: 2.8rem;"></i>
                     <p class="fw-bold text-dark m-0" style="font-size: 1rem;">Brud</p>
                 </div>
@@ -151,7 +151,7 @@ require "settings/init.php";
 
         <div class="col">
             <div class="ratio ratio-1x1">
-                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark rounded p-3" style="cursor: pointer;">
+                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark py-4 py-md-5 px-3 h-100" style="cursor: pointer;">
                     <i class="fas fa-bolt text-dark mb-2" style="font-size: 2.8rem;"></i>
                     <p class="fw-bold text-dark m-0" style="font-size: 1rem;">Shock</p>
                 </div>
@@ -160,7 +160,7 @@ require "settings/init.php";
 
         <div class="col">
             <div class="ratio ratio-1x1">
-                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark rounded p-3" style="cursor: pointer;">
+                <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark py-4 py-md-5 px-3 h-100" style="cursor: pointer;">
                     <i class="fas fa-skull-crossbones text-dark mb-2" style="font-size: 2.8rem;"></i>
                     <p class="fw-bold text-dark m-0" style="font-size: 1rem;">Forgiftning</p>
                 </div>
