@@ -42,6 +42,68 @@ require "settings/init.php";
     </a>
     </div>
 
+    <div class="col-12 col-lg-4">
+        <div class="border border-dark p-3">
+            <p class="text-center mb-2">Førstehjælp ved hjertestop</p>
+            <p class="small">Omhandle bl.a overlevelsekæden, hjerte-lunge-redning, brug af AED/hjertestarter...... </p>
+            <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 240 minutter</p>
+        </div>
+        <a href="#" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark">
+             Tilmeld <i class="fa-solid fa-arrow-right"></i>
+    </a>
+    </div>
+
+    <div class="col-12 col-lg-4">
+        <div class="border border-dark p-3">
+            <p class="text-center mb-2">Førstehjælp ved ulykker</p>
+            <p class="small">Omhandler bl.a førstehjælps hovdepunkter og sætte deltagerne i stand til at handle på et ulykkested</p>
+            <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 120 minutter</p>
+        </div>
+        <div class="border border-top-0 border-dark p-2 text-center">
+            <p class="small mb-2">Klar <strong>"Hjertestop"</strong>før denne</p>
+        </div>
+        <a href="#" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark">
+             Tilmeld <i class="fa-solid fa-arrow-right"></i>
+    </a>
+    </div>
+
+    <div class="col-12 col-lg-4">
+        <div class="border border-dark p-3">
+            <p class="text-center mb-2">Færdselsrelateret førstehjælp</p>
+            <p class="small">Færdselsrelateret førstehjælp bil/MC/traktor er kompetencegivende i henhold til kørekortbekendtgærelsen ....</p>
+            <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 240 minutter</p>
+        </div>
+        <div class="border border-top-0 border-dark p-2 text-center">
+            <p class="small mb-2">Klar <strong>"Hjertestop"</strong>før denne</p>
+        </div>
+        <a href="#" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark">
+             Tilmeld <i class="fa-solid fa-arrow-right"></i>
+    </a>
+    </div>
+
+
+    <div class="col-12 col-lg-4">
+        <div class="border border-dark p-3">
+            <p class="text-center mb-2">Opdatering af førstehjælp ved hjertestop</p>
+            <p class="small">Opdateringsuddannelsen repeterer og opdaterer tidligere indlærte kompetencer i forhold til førstehjælp ved hjertestop..... </p>
+            <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 180 minutter</p>
+        </div>
+        <a href="#" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark">
+            Tilmeld <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+
+  <div class="col-12 col-lg-4">
+        <div class="border border-dark p-3">
+            <p class="text-center mb-2">Opdatering af førstehjælp ved hjertestop</p>
+            <p class="small">Opdateringsuddannelsen vedligeholder og opdaterer indholdet af basisuddannelsen....  </p>
+            <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 180 minutter</p>
+        </div>
+        <a href="#" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark">
+            Tilmeld <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+
 
 
 </div>
