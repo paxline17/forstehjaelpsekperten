@@ -1,0 +1,24 @@
+{
+  "hjertestop": {
+    "titel": "Hjertestop",
+    "ikon": "fa-heartbeat",
+    "billede": "img/hjertestop.png",
+    "trin": [
+      "Skab sikkerhed",
+      "Tjek bevidsthed",
+      "Ring 1-1-2 omgående",
+      "Start hjertemassage (Giv 30 tryk efterfulgt af 2 indblæsninger)",
+      "Brug en hjertestarter (AED)"
+    ]
+  },
+  "kvælning": {
+    "titel": "Kvælning",
+    "ikon": "fa-lungs",
+    "billede": "img/kvælning.png",
+    "trin": [
+      "Opmuntre til at hoste",
+      "Giv op til 5 slag i ryggen",
+      "Giv op til 5 Heimlich-manøvrer (bughandlinger)"
+    ]
+  }
+}

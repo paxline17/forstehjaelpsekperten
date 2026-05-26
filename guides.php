@@ -170,6 +170,8 @@ require "settings/init.php";
     </div>
 </div>
 
+
+
 <?php
 include("includes/navbar.php");
 ?>
