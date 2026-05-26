@@ -28,32 +28,44 @@ require "settings/init.php";
 
 <body class="bg-light d-flex flex-column min-vh-100">
 
-    <div class="container app-container my-3 flex-grow-1">
+    <div class="container my-3 flex-grow-1">
 
         <div id="page-menu" class="page active">
             <h1 class="text-center fw-bold my-4">Spil</h1>
             <div class="row g-3 px-2">
 
                 <div class="col-12 col-md-6">
-                    <div class="bg-white border border-lightgray rounded-1 d-flex justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer" onclick="navigateTo('page-game'); newGame();">
+                    <div class="bg-white border border-lightgray rounded-3 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer p-4 menu-card" onclick="navigateTo('page-game'); startNewGame('memory');">
+                        <div class="menu mb-2 d-flex align-items-center justify-content-center rounded">
+                            <i class="fas fa-th fs-1 text-secondary"></i>
+                        </div>
                         <span class="fw-bold text-dark fs-5 text-center px-2">Vendespil</span>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <div class="bg-white border border-lightgray rounded-1 d-flex justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer">
-                        <span class="fw-bold text-dark fs-5 text-center px-2">Match to ord</span>
+                    <div class="bg-white border border-lightgray rounded-3 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer p-4 menu-card">
+                        <div class="menu mb-2 d-flex align-items-center justify-content-center rounded">
+                            <i class="fas fa-font text-primary fs-1"></i>
+                        </div>
+                        <span class="fw-bold text-dark fs-5 text-center px-2">Match ord og billede</span>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <div class="bg-white border border-lightgray rounded-1 d-flex justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer">
+                    <div class="bg-white border border-lightgray rounded-3 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer p-4 menu-card">
+                        <div class="menu mb-2 d-flex align-items-center justify-content-center rounded">
+                            <i class="fas fa-clock fs-1"></i>
+                        </div>
                         <span class="fw-bold text-dark fs-5 text-center px-2">Kommer snart</span>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <div class="bg-white border border-lightgray rounded-1 d-flex justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer">
+                    <div class="bg-white border border-lightgray rounded-3 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer p-4 menu-card">
+                        <div class="menu mb-2 d-flex align-items-center justify-content-center rounded">
+                            <i class="fas fa-clock fs-1"></i>
+                        </div>
                         <span class="fw-bold text-dark fs-5 text-center px-2">Kommer snart</span>
                     </div>
                 </div>
@@ -62,7 +74,7 @@ require "settings/init.php";
         </div>
 
         <div id="page-game" class="page">
-            <div class="d-flex justify-content-between align-items-center mb-3 px-2">
+            <div class="d-flex justify-content-between align-items-center mb-2 px-2">
                 <button class="btn btn-link link-dark fs-4 p-1" onclick="navigateTo('page-menu')">
                     <i class="fas fa-arrow-left"></i>
                 </button>
