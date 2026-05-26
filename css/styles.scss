@@ -171,16 +171,18 @@ body{
   text-align: center;
 }
 
-.gameBtn{
-  background: #850b2e;
+.btn-win-retry{
+  background: #800020;
   color: white;
   border: none;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover{
+    background-color: #600018;
+    color: #fff;
+  }
 }
 
-.gameBtn:hover{
-  background-color: #610822;
-}
 
 .modal-content{
   animation: bounce 0.4s ease-out;
@@ -198,9 +200,10 @@ body{
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease-in-out  ;
-  user-select: none;
   box-shadow: 0 2px 4px rabg(0,0,0,0.05);
   background-color: #fff;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
 
   &:hover:not(.matched-done){
     transform: translateY(-2px);
@@ -219,7 +222,7 @@ body{
 }
 
 .matched-done{
-  cursor: default;
+  cursor: not-allowed;
   opacity: 0.6;
   border-color: #28a745;
   background-color: #d4edda

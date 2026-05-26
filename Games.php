@@ -146,16 +146,22 @@ require "settings/init.php";
 
     <div class="modal fade" id="winModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-           <div class="modal-content border border-secondary border-3 rounded-4">
-               <h2 class="fw-bold mb-4"><i class="fas fa-trophy me-2"></i>Du vinder!<i class="fas fa-trophy ms-2"></i></h2>
-               <p class="mb-2 fs-5">Forsøg: <span id="finalMoves" class="fw-bold"></span></p>
-               <p class="mb-2 fs-5">Tid: <span id="finalTime" class="fw-bold"></span></p>
+           <div class="modal-content text-center p-4 border border-secondary border-3 rounded-4">
+
+               <h2 class="fw-bold mb-4 text-center text-primary-emphasis">
+                   <i class="fas fa-trophy text-primary me-2"></i>Du vinder!<i class="fas fa-trophy text-primary ms-2"></i>
+               </h2>
+
+               <p class="mb-2 fs-5">Forsøg: <span id="finalMoves" class="fw-bold">0</span></p>
+               <p class="mb-2 fs-5">Tid: <span id="finalTime" class="fw-bold">0:00</span></p>
 
                <div class="bg-primary-subtle border border-primary p-3 rounded-3 my-3">
                    <p class="mb-0 fs-4 fw-bold text-dark">Din Score:</p>
                    <p class="mb-0 display-6 fw-bold text-primary" id="finalScore">0</p>
                </div>
-               <button class="btn gameBtn btn-secondary px-5 py-2 rounded-3 mt-2" onclick="restartCurrentGame()">Spil igen</button>
+
+               <button class="btn btn-win-retry px-5 py-2 rounded-3 mt-3 w-75 mx-auto" data-bs-dismiss="modal" onclick="restartCurrentGame()">Spil igen</button>
+
            </div>
         </div>
     </div>
@@ -321,9 +327,8 @@ require "settings/init.php";
 
                imagesDeck.forEach(item => {
                    var card = document.createElement('div');
-                   card.className = 'match-card-image bg-white border border-secondary border-2 rounded-3 p-1 mb-2 text-center cursor-pointer overflow-hidden';
-                   card.style.height = '73px';
-                   card.innerHTML = '<img src="' + item.imgUrl + '" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">';
+                   card.className = 'match-card-image border border-secondary border-2 cursor-pointer';
+                   card.innerHTML = '<img src="' + item.imgUrl + '">';
                    card.dataset.pairId = item.id;
                    card.onclick = selectImageElement;
                    imagesCol.appendChild(card);
