@@ -38,9 +38,12 @@ require "settings/init.php";
     <div class="col-12 col-lg-4">
         <div class="border border-dark p-3 bg-lightgray">
             <p class="text-center mb-2 ">Basal førstehjælp til børn</p>
-            <p class="small">Sætter deltagerne i stand til at handle ved hjertestop og andre livstruende hændelser, der involverer børn....</p>
-            <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 240 minutter</p>
-        </div>
+            <p class="small">Sætter deltagerne i stand til at handle ved hjertestop og andre livstruende hændelser, der involverer børn....
+            <span class="collapse" id="collapse1">Kurset dækker hjerte-lunge-redning til børn og spædbørn, håndtering af kvælning samt vurdering af en bevidstløs situation. Det er velegnet til forældre, pædagoger og andre der arbejder med eller passer børn</span></p>
+
+        <a class="small text-decoration-none text-primary laesmere" data-bs-toggle="collapse" href="#collapse1" role="button" aria-expanded="false">Læs mere</a>
+        <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 240 minutter</p>
+    </div>
         <a href="#" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
              Tilmeld <i class="fa-solid fa-arrow-right"></i>
         </a>
@@ -118,5 +121,14 @@ include("includes/navbar.php" );
 ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.querySelectorAll('.laesmere').forEach(link => {
+        const target = document.querySelector(link.getAttribute('href'));
+        target.addEventListener('show.bs.collapse', ()=>link.textContent = 'Læs mindre')
+        target.addEventListener('hide.bs.collapse', ()=>link.textContent = 'Læs mere')
+    });
+</script>
+
 </body>
 </html>
