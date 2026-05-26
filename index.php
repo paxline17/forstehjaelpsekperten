@@ -26,7 +26,7 @@ require "settings/init.php";
 </head>
 
 
-<img src="images/logozoe.svg" alt="logo" class="d-block mx-auto" style="height: 130px;">
+<img src="images/logozoe.svg" alt="logo" class="d-block mx-auto w-50" style="height: 130px;">
 
 
 <div class="container">
