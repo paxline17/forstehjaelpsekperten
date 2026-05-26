@@ -52,7 +52,10 @@ require "settings/init.php";
     <div class="col-12 col-lg-4">
         <div class="border border-dark p-3 bg-lightgray">
             <p class="text-center mb-2">Førstehjælp ved hjertestop</p>
-            <p class="small">Omhandle bl.a overlevelsekæden, hjerte-lunge-redning, brug af AED/hjertestarter...... </p>
+            <p class="small">Omhandle bl.a overlevelsekæden, hjerte-lunge-redning, brug af AED/hjertestarter......
+                <span class="collapse" id="collapse2">Du øver dig i korrekt teknik på en dukke og lærer at betjene en hjertestarter, så du er tryg og klar til at handle, hvis det sker i virkeligheden.</span></p>
+
+            <a class="small text-decoration-none text-primary laesmere" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false">Læs mere</a>
             <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 240 minutter</p>
         </div>
         <a href="#" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
@@ -63,7 +66,10 @@ require "settings/init.php";
     <div class="col-12 col-lg-4">
         <div class="border border-dark p-3 bg-lightgray">
             <p class="text-center mb-2">Førstehjælp ved ulykker</p>
-            <p class="small">Omhandler bl.a førstehjælps hovdepunkter og sætte deltagerne i stand til at handle på et ulykkested</p>
+            <p class="small">Omhandler bl.a førstehjælps hovdepunkter og sætte deltagerne i stand til at handle på et ulykkested
+            <span class="collapse" id="collapse3"> Du lærer at sikre skadestedet, vurdere tilskadekomne og prioritere din indsats, indtil professionel hjælp ankommer.</span></p>
+
+            <a class="small text-decoration-none text-primary laesmere" data-bs-toggle="collapse" href="#collapse3" role="button" aria-expanded="false">Læs mere</a>
             <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 120 minutter</p>
         </div>
         <div class="border border-top-0 border-dark p-2 text-center bg-lightgray">
@@ -77,7 +83,10 @@ require "settings/init.php";
     <div class="col-12 col-lg-4">
         <div class="border border-dark p-3 bg-lightgray">
             <p class="text-center mb-2">Færdselsrelateret førstehjælp</p>
-            <p class="small">Færdselsrelateret førstehjælp bil/MC/traktor er kompetencegivende i henhold til kørekortbekendtgærelsen ....</p>
+            <p class="small">Færdselsrelateret førstehjælp bil/MC/traktor er kompetencegivende i henhold til kørekortbekendtgærelsen ....
+            <span class="collapse" id="collapse4">Kurset er relevant for alle med kørekort til bil, MC eller traktor, og dækker håndtering af typiske trafikuheld, herunder bevidstløse personer og blødninger.</span></p>
+
+            <a class="small text-decoration-none text-primary laesmere" data-bs-toggle="collapse" href="#collapse4" role="button" aria-expanded="false">Læs mere</a>
             <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 240 minutter</p>
         </div>
         <div class="border border-top-0 border-dark p-2 text-center bg-lightgray bg-lightgray">
@@ -92,7 +101,10 @@ require "settings/init.php";
     <div class="col-12 col-lg-4">
         <div class="border border-dark p-3 bg-lightgray">
             <p class="text-center mb-2">Opdatering af førstehjælp ved hjertestop</p>
-            <p class="small">Opdateringsuddannelsen repeterer og opdaterer tidligere indlærte kompetencer i forhold til førstehjælp ved hjertestop..... </p>
+            <p class="small">Opdateringsuddannelsen repeterer og opdaterer tidligere indlærte kompetencer i forhold til førstehjælp ved hjertestop.....
+            <span class="collapse" id="collapse5">Det anbefales at opdatere sine kompetencer hvert andet år, så du fortsat er klar til at handle hurtigt og korrekt, når det gælder.</span></p>
+
+            <a class="small text-decoration-none text-primary laesmere" data-bs-toggle="collapse" href="#collapse5" role="button" aria-expanded="false">Læs mere</a>
             <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 180 minutter</p>
         </div>
         <a href="#" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
@@ -102,8 +114,11 @@ require "settings/init.php";
 
   <div class="col-12 col-lg-4">
         <div class="border border-dark p-3 bg-lightgray">
-            <p class="text-center mb-2">Opdatering af førstehjælp ved hjertestop</p>
-            <p class="small">Opdateringsuddannelsen vedligeholder og opdaterer indholdet af basisuddannelsen....  </p>
+            <p class="text-center mb-2">Opdatering af basal førstehjælp</p>
+            <p class="small">Opdateringsuddannelsen vedligeholder og opdaterer indholdet af basisuddannelsen....
+                <span class="collapse" id="collapse6">Kurset sikrer at dine færdigheder holdes ved lige og er i overensstemmelse med de nyeste retningslinjer inden for førstehjælp.</span></p>
+
+            <a class="small text-decoration-none text-primary laesmere" data-bs-toggle="collapse" href="#collapse6" role="button" aria-expanded="false">Læs mere</a>
             <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 180 minutter</p>
         </div>
         <a href="#" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
