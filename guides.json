@@ -2,7 +2,7 @@
   "hjertestop": {
     "titel": "Hjertestop",
     "ikon": "fa-heartbeat",
-    "billede": "img/hjertestop.png",
+    "billede": "images/Hjertestop.svg",
     "trin": [
       "Skab sikkerhed",
       "Tjek bevidsthed",
@@ -13,12 +13,83 @@
   },
   "kvælning": {
     "titel": "Kvælning",
-    "ikon": "fa-lungs",
-    "billede": "img/kvælning.png",
+    "ikon": "fa-head-side-cough",
+    "billede": "images/Kvælning.svg",
     "trin": [
-      "Opmuntre til at hoste",
+      "Hjælp personen med at hoste",
       "Giv op til 5 slag i ryggen",
-      "Giv op til 5 Heimlich-manøvrer (bughandlinger)"
+      "Giv op til 5 mavestød (Heimlich-manøvrer)",
+      "Hvis personen mister bevidstheden (Ring 112)"
+    ]
+  },
+  "forbrænding": {
+    "titel": "Forbrænding",
+    "ikon": "fa-fire",
+    "billede": "images/Forbrænding.svg",
+    "trin": [
+      "Afkøl området",
+      "Fjern tøj (Hvis det er muligt)",
+      "Beskyt såret",
+      "Smertelindring"
+    ]
+  },
+  "blødning": {
+    "titel": "Blødning",
+    "ikon": "fa-tint",
+    "billede": "images/Blødning.svg",
+    "trin": [
+      "Stop blødningen",
+      "Lejr personen",
+      "Læg en forbinding",
+      "Anvend tourniquet ved massiv blødning",
+      "Forebyg chok og ring 1-1-2"
+    ]
+  },
+  "bevidstløshed": {
+    "titel": "Bevidstløshed",
+    "ikon": "fa-user-slash",
+    "billede": "images/Bevidstløshed.svg",
+    "trin": [
+      "Tjek bevidsthed",
+      "Råb om hjælp",
+      "Skab frie luftveje",
+      "Tjek vejrtrækningen",
+      "Ring 1-1-2"
+    ]
+  },
+  "brud": {
+    "titel": "Brud",
+    "ikon": "fa-bone",
+    "billede": "images/Brud.svg",
+    "trin": [
+      "Hold personen i ro",
+      "Støt brudstedet",
+      "Dæk åbne sår",
+      "Køl ned og løft"
+    ]
+  },
+  "shock": {
+    "titel": "Shock",
+    "ikon": "fa-bolt",
+    "billede": "images/Shock.svg",
+    "trin": [
+      "Lejr den tilskadekomne",
+      "Stop blødning",
+      "Hold personen varm",
+      "Berolig og skab ro",
+      "Ingen mad eller drikke"
+    ]
+  },
+  "forgiftning": {
+    "titel": "Forgiftning",
+    "ikon": "fa-skull-crossbones",
+    "billede": "images/Forgiftning.svg",
+    "trin": [
+      "Fjern giften",
+      "Fremkald ALDIRG opkastning",
+      "Fortynd giften",
+      "Skab stabilt sideleje",
+      "Gem emballagen"
     ]
   }
 }
