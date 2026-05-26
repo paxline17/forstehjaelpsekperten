@@ -25,10 +25,11 @@ require "settings/init.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
 
-<img src="images/Logo.svg" alt="logo" class="img-fluid w-100">
-<img src="images/NavnUdenLogo.svg" alt="logo" class="img-fluid w-100">
+<div class="d-flex align-items-center justify-content-center">
+<img src="images/Logo.svg" alt="logo" style="height: 80px;">
+<img src="images/NavnUdenLogo.svg" alt="logo" style="height: 250px; margin-left: -70px;">
+</div>
 
 <div class="container">
 
