@@ -44,7 +44,7 @@ require "settings/init.php";
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <div class="bg-white border border-lightgray rounded-3 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer p-4 menu-card">
+                    <div class="bg-white border border-lightgray rounded-3 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer p-4 menu-card" onclick="navigateTo('page-game'); startNewGame('matchWordImage');">
                         <div class="menu mb-2 d-flex align-items-center justify-content-center rounded">
                             <i class="fas fa-font text-primary fs-1"></i>
                         </div>
@@ -86,7 +86,7 @@ require "settings/init.php";
 
         <div class="memoryHeader text-center bg-white p-3 mb-4 mx-auto shadow-sm rounded-4 border-secondary border border-2">
             <div id="streakBadge" class="badge bg-primary text-white mb-1 d-none">
-                <i class="fas fa-fire"</i> <span id="streakCount">0</span> I STREG!
+                <i class="fas fa-fire"></i> <span id="streakCount">0</span> I STREG!
             </div>
 
             <h1 class="memoryH1 fw-bold fs-4 mb-2 text-secondary" id="gameTitle">Spil</h1>
@@ -171,15 +171,30 @@ require "settings/init.php";
             'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400',
             'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=400',
             'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400'
+            'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400'
         ];
 
-        var firstCard = null
-        var secondCard = null
-        var canFlip = true
-        var matches = 0
+        var wordImagePairs = [
+            { id: 1, word: "Hjertestarter (AED)", image: "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?w=300" },
+            { id: 2, word: "Forbindingskasse", image: "https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=300" },
+            { id: 3, word: "Ambulance", image: "https://images.unsplash.com/photo-1587749091710-304543f092d6?w=300" },
+            { id: 4, word: "Plaster", image: "https://images.unsplash.com/photo-1590611936760-eeb9bc593025?w=300" },
+            { id: 5, word: "Førstehjælpsbog", image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300" },
+            { id: 6, word: "Sikkerhedsvest", image: "https://images.unsplash.com/photo-1516491576580-b522a40a87a0?w=300" },
+            { id: 7, word: "Ispose", image: "https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?w=300" },
+            { id: 8, word: "Nødtelefon 112", image: "https://images.unsplash.com/photo-1507207611509-ec012433ff52?w=300" },
+            { id: 9, word: "Engangshandsker", image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=300" }
+        ];
+
+        var firstCard = null;
+        var secondCard = null;
+        var selectedWordCard = null;
+        var selectedImageCard = null;
+        var canFlip = true;
+        var matches = 0;
         var totalPairsNeeded = 0;
-        var moves = 0
-        var seconds = 0
+        var moves = 0;
+        var seconds = 0;
 
         var score = 0;
         var comboBonusPoints = 0;
@@ -208,60 +223,112 @@ require "settings/init.php";
            setupGame();
        }
 
-       function setupGame(){
+       function setupGame() {
            const container = document.getElementById("gameContainer");
            const gameTitle = document.getElementById("gameTitle");
-           const inforModalText = document.getElementById("infoModalText");
+           const infoModalText = document.getElementById("infoModalText");
+
+
+           container.innerHTML = "";
+           clearInterval(timerInterval);
+
+           matches = 0;
+           moves = 0;
+           seconds = 0;
+           score = 0;
+           comboBonusPoints = 0;
+           currentStreak = 0;
+           timerRunning = false;
+
+           document.getElementById('streakBadge').classList.add('d-none');
+
+           if (currentGameType === 'memory') {
+               totalPairsNeeded = 9;
+               gameTitle.innerHTML = '<i class="fas fa-star small"></i> Vendespil <i class="fas fa-star small"></i>'
+               infoModalText.innerHTML =
+                   '<p class="text-dark">Vend to kort ad gangen ved at klikke på dem.</p>' +
+                   '<p class="text-dark">Hvert rigtige par giver +100 point.</p>' +
+                   '<p class="text-dark fw-bold text-secondary">Gæt rigtigt i streg for at aktivere din Combo-streak og få endnu flere point!</p>';
+
+               var board = document.createElement('div');
+               board.className = 'game-board mx-auto px-2';
+               container.appendChild(board);
+
+               let deck = memoryImages.concat(memoryImages);
+               deck.sort(() => Math.random() - 0.5);
+
+               deck.forEach(imgUrl => {
+                   var card = document.createElement('div');
+                   card.className = 'memoryCard';
+                   card.innerHTML = '<div class="card-front"<i class="fas fa-heart"></i></div>' +
+                       '<div class="card-back"><img src="' + imgUrl + '"></div>';
+                   card.onclick = flipMemoryCard
+                   card.dataset.matchKey = imgUrl;
+                   board.appendChild(card);
+               });
+
+               firstCard = null;
+               secondCard = null;
+               canFlip = true;
+
+           } else if (currentGameType === 'matchWordImage') {
+               totalPairsNeeded = wordImagePairs.length;
+               gameTitle.innerHTML = '<i class="fas fa-font small"></i> Match ord og billede <i class="fas fa-font small"></i>'
+               infoModalText.innerHTML = '<p class="text-dark">Klik på et ord i venstre side og derefter på det rigtige billede til højre.</p>' +
+                   '<p class="text-dark">Hvert rigtigt match giver +100 point</p>' +
+                   '<p class="text-dark fw-bold text-secondary">Hvis du gætter rigtigt i træk, stiger din Combo og giver ekstra point!</p>';
+
+
+               var row = document.createElement('div');
+               row.className = 'row g-3 mx-auto px-2';
+               row.style.maxWidth = '600px';
+               row.innerHTML = '<div class="col-6" id="wordsCol"></div><div class="col-6" id="imagesCol"></div>';
+               container.appendChild(row);
+
+               const wordsCol = document.getElementById("wordsCol");
+               const imagesCol = document.getElementById("imagesCol");
+
+               let wordsDeck = [], imagesDeck = [];
+               wordImagePairs.forEach(pair => {
+                   wordsDeck.push({id: pair.id, text: pair.word});
+                   imagesDeck.push({id: pair.id, imgUrl: pair.image});
+               });
+
+               wordsDeck.sort(() => Math.random() - 0.5);
+               imagesDeck.sort(() => Math.random() - 0.5);
+
+               wordsDeck.forEach(item => {
+                   var card = document.createElement('div');
+                   card.className = 'match-card-word bg-white border border-secondary border-2 rounded-3 p-3 mb-2 text-center fw-bold cursor-pointer';
+                   card.style.fontSize = '0.9rem';
+                   card.textContent = item.text;
+                   card.dataset.pairId = item.id;
+                   card.onclick = selectWordElement;
+                   wordsCol.appendChild(card);
+               });
+
+               imagesDeck.forEach(item => {
+                   var card = document.createElement('div');
+                   card.className = 'match-card-image bg-white border border-secondary border-2 rounded-3 p-1 mb-2 text-center cursor-pointer overflow-hidden';
+                   card.style.height = '73px';
+                   card.innerHTML = '<img src="' + item.imgUrl + '" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">';
+                   card.dataset.pairId = item.id;
+                   card.onclick = selectImageElement;
+                   imagesCol.appendChild(card);
+               });
+
+               selectedWordCard = null;
+               selectedImageCard = null;
+
+
+           }
+
+           updateStatsDisplay();
+
        }
-
-       container.innerHTML = "";
-       clearInterval(timerInterval);
-
-       matches = 0;
-       moves = 0;
-       seconds = 0;
-       score = 0;
-       comboBonusPoints = 0;
-       currentStreak = 0;
-       timerRunning = false;
-
-       document.getElementById('streakBadge').classList.add('d-none');
-
-        if (currentGameType === 'memory'){
-            totalPairsNeeded = 9;
-            gameTitle.innerHTML = '<i class="fas fa-star small"></i> Vendespil <i class="fas fa-star small"></i>'
-            infoModalText.innerHTML =
-                '<p class="text-dark">Vend to kort ad gangen ved at klikke på dem.</p>' +
-                '<p class="text-dark">Hvert rigtige par giver +100 point.</p>' +
-                '<p class="text-dark fw-bold text-secondary">Gæt rigtigt i streg for at aktivere din Combo-streak og få endnu flere point!</p>';
-        }
-
-        var board = document.createElement('div');
-        board.className = 'game-board mx-auto px-2';
-        container.appendChild(board);
-
-        let deck = memoryImages.concat(memoryImages);
-        deck.sort(() => Math.random() -0.5);
-
-        deck.forEach(imgUrl =>{
-            var card = document.createElement('div');
-            card.className = 'memoryCard';
-            card.innerHTML = '<div class="card-front"<i class="fas fa-heart"></i></div>' +
-                             '<div class="card-back"><img src="' + imgUrl + '"></div>';
-            card.onclick = flipMemoryCard
-            card.dataset.matchKey = imgUrl;
-            board. appendChild(card);
-        }
-
-        firstCard = null;
-        secondCard = null;
-        canFlip = true;
-
-        /* match ord og billeder javascript her */
-
         function flipMemoryCard(){
             if (!canFlip) return;
-            if (this.classList.contains('flipped')) || this.classList.contains('matched') return;
+            if (this.classList.contains('flipped') || this.classList.contains('matched')) return;
 
             if (!timerRunning) startTimer();
 
@@ -307,7 +374,76 @@ require "settings/init.php";
             }
         }
 
-        /* funktions kode til match ord og billeder */
+        function selectWordElement(){
+            if (this.classList.contains('matched-done')) return;
+            if (!timerRunning) startTimer();
+
+            if (selectedWordCard) selectedWordCard.classList.remove('border-primary', 'bg-light');
+            selectedWordCard = this;
+            selectedWordCard.classList.add('border-primary', 'bg-light');
+
+            checkWordImageMatch();
+        }
+
+        function selectImageElement(){
+            if (this.classList.contains('matched-done')) return;
+            if (!timerRunning) startTimer();
+
+            if (selectedImageCard) selectedImageCard.classList.remove('border-primary', 'bg-light');
+            selectedImageCard = this;
+            selectedImageCard.classList.add('border-primary', 'bg-light');
+
+            checkWordImageMatch();
+        }
+
+        function checkWordImageMatch(){
+            if (selectedWordCard && selectedImageCard){
+                moves++;
+
+                if (selectedWordCard.dataset.pairId == selectedImageCard.dataset.pairId){
+                    score += 100;
+                    currentStreak++;
+                    handleComboBonus();
+
+                    selectedWordCard.classList.remove('border-primary', 'bg-light', 'border-secondary')
+                    selectedImageCard.classList.remove('border-primary', 'bg-light', 'border-secondary')
+
+                    selectedWordCard.classList.add('border-primary', 'bg-light', 'border-secondary')
+                    selectedImageCard.classList.add('border-primary', 'bg-light', 'border-secondary')
+
+                    matches++;
+                    selectedWordCard = null;
+                    selectedImageCard = null;
+                    updateStatsDisplay();
+
+                    if (matches == totalPairsNeeded) endGame();
+                } else {
+                    currentStreak =0;
+                    var tempW = selectedWordCard, tempI = selectedImageCard;
+                    tempW.classList.add('border-danger', 'bg-danger-subtle');
+                    tempI.classList.add('border-danger', 'bg-danger-subtle');
+
+                    selectedWordCard = null;
+                    selectedImageCard = null;
+
+                    setTimeout(function (){
+                        tempW.classList.remove('border-danger', 'bg-danger-subtle', 'border-primary', 'bg-light');
+                        tempI.classList.remove('border-danger', 'bg-danger-subtle', 'border-primary', 'bg-light');
+                        updateStatsDisplay();
+                    }, 800);
+                }
+            }
+        }
+
+        function handleComboBonus(){
+            if (currentStreak > 1){
+                var bonus = (currentStreak - 1) * 50;
+                score += bonus;
+                comboBonusPoints += bonus;
+            }
+        }
+
+
 
         function startTimer(){
             timerRunning = true;
@@ -347,7 +483,7 @@ require "settings/init.php";
             winModal.show();
         }
 
-        document.addEventListener("DOMCententLoaded", function (){
+        document.addEventListener("DOMContentLoaded", function (){
            winModal = new bootstrap.Modal(document.getElementById('winModal'));
         });
 
