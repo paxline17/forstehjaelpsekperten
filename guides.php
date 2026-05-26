@@ -35,7 +35,7 @@ $selectedId = isset($_GET['id']) ? $_GET['id'] : null;
     $currentGuide = $guides[$selectedId];
     ?>
     <div class="container py-4">
-        <a href="guides.php" class="btn btn-outline-secondary mb-3">
+        <a href="guides.php" class="btn mb-3">
             <i class="fas fa-arrow-left"></i> Tilbage
         </a>
 
@@ -53,11 +53,12 @@ $selectedId = isset($_GET['id']) ? $_GET['id'] : null;
                         <strong><?php echo ($index + 1) . ". "; ?></strong>
                         <?php echo $trin; ?>
                     </div>
-                    <i class="fas fa-arrow-down text-muted small"></i>
+                    <i class="fas fa-arrow-down text-muted small btn"></i>
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
+    <div class="py-4"></div>
 
 <?php else:
 
@@ -97,7 +98,7 @@ $selectedId = isset($_GET['id']) ? $_GET['id'] : null;
                 </div>
             <?php endforeach; ?>
         </div>
-<div class="py-5"></div>
+<div class="py-4"></div>
 
     </div>
 

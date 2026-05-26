@@ -2,7 +2,7 @@
   "hjertestop": {
     "titel": "Hjertestop",
     "ikon": "fa-heartbeat",
-    "billede": "img/Hjertestop.svg",
+    "billede": "images/Hjertestop.svg",
     "trin": [
       "Skab sikkerhed",
       "Tjek bevidsthed",
@@ -14,7 +14,7 @@
   "kvælning": {
     "titel": "Kvælning",
     "ikon": "fa-head-side-cough",
-    "billede": "img/kvælning.png",
+    "billede": "images/Kvælning.svg",
     "trin": [
       "Hjælp personen med at hoste",
       "Giv op til 5 slag i ryggen",
@@ -25,7 +25,7 @@
   "forbrænding": {
     "titel": "Forbrænding",
     "ikon": "fa-fire",
-    "billede": "",
+    "billede": "images/Forbrænding.svg",
     "trin": [
       "Afkøl området",
       "Fjern tøj (Hvis det er muligt)",
@@ -36,7 +36,7 @@
   "blødning": {
     "titel": "Blødning",
     "ikon": "fa-tint",
-    "billede": "",
+    "billede": "images/Blødning.svg",
     "trin": [
       "Stop blødningen",
       "Lejr personen",
@@ -48,7 +48,7 @@
   "bevidstløshed": {
     "titel": "Bevidstløshed",
     "ikon": "fa-user-slash",
-    "billede": "",
+    "billede": "images/Bevidstløshed.svg",
     "trin": [
       "Tjek bevidsthed",
       "Råb om hjælp",
@@ -60,7 +60,7 @@
   "brud": {
     "titel": "Brud",
     "ikon": "fa-bone",
-    "billede": "",
+    "billede": "images/Brud.svg",
     "trin": [
       "Hold personen i ro",
       "Støt brudstedet",
@@ -71,7 +71,7 @@
   "shock": {
     "titel": "Shock",
     "ikon": "fa-bolt",
-    "billede": "",
+    "billede": "images/Shock.svg",
     "trin": [
       "Lejr den tilskadekomne",
       "Stop blødning",
@@ -83,7 +83,7 @@
   "forgiftning": {
     "titel": "Forgiftning",
     "ikon": "fa-skull-crossbones",
-    "billede": "",
+    "billede": "images/Forgiftning.svg",
     "trin": [
       "Fjern giften",
       "Fremkald ALDIRG opkastning",
