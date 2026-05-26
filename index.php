@@ -27,6 +27,9 @@ require "settings/init.php";
 
 <body>
 
+<img src="images/Logo.svg" alt="logo" class="img-fluid w-100">
+<img src="images/NavnUdenLogo.svg" alt="logo" class="img-fluid w-100">
+
 <div class="container">
 
 <p class="text-center mb-3">Akutte guides</p>
@@ -58,6 +61,10 @@ require "settings/init.php";
 </a>
 
 </div>
+
+<?php
+include("includes/navbar.php" );
+?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
