@@ -18,6 +18,7 @@ require "settings/init.php";
     <meta name="author" content="Udgiver">
     <meta name="copyright" content="Information om copyright">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 
     <script src="https://kit.fontawesome.com/5458120b39.js" crossorigin="anonymous"></script>
@@ -78,7 +79,7 @@ require "settings/init.php";
                 <button class="btn btn-link link-dark fs-4 p-1" onclick="navigateTo('page-menu')">
                     <i class="fas fa-arrow-left"></i>
                 </button>
-                <button class="btn btn-link link-dark fs-4 p-1" data-bs-toggle="modal" data-bs-target="#infoModal">
+                <button class="btn btn-link text-info fs-4 p-1" data-bs-toggle="modal" data-bs-target="#infoModal">
                     <i class="fas fa-info-circle"></i>
                 </button>
             </div>
@@ -101,23 +102,23 @@ require "settings/init.php";
                     <div class="stat-label small opacity-75">Tid</div>
                     <div class="stat-value fw-bold fs-5" id="time">0:00</div>
                 </div>
-            </div>
 
-            <div class="stat stats-box border rounded-3 text-center px-2 py-1">
-                <div class="stat-label small opacity-75">Par</div>
-                <div class="stat-value fw-bold fs-5" id="matches">0/9</div>
-            </div>
+                <div class="stat stats-box border rounded-3 text-center px-2 py-1">
+                    <div class="stat-label small opacity-75">Par</div>
+                    <div class="stat-value fw-bold fs-5" id="matches">0/9</div>
+                </div>
 
-            <div class="stat stats-box border rounded-3 text-center px-2 py-1">
-                <div class="stat-label small text-primary">Point</div>
-                <div class="stat-value fw-bold fs-5 text-primary" id="score">0</div>
+                <div class="stat stats-box border rounded-3 text-center px-2 py-1">
+                    <div class="stat-label small opacity-75">Point</div>
+                    <div class="stat-value fw-bold fs-5" id="score">0</div>
+                </div>
             </div>
-
 
         </div>
 
-        <div id="gameContainer"></div>
+        <div id="gameContainer" class="mb-5"></div>
     </div>
+
     </div>
 
     <?php
@@ -133,9 +134,11 @@ require "settings/init.php";
                 <div class="modal-body text-center pt-0">
                     <i class="fas fa-info-circle text-info fs-1 mb-3"></i>
                     <h2 class="fw-bold mb-3 text-primary">Hvordan spiller man?</h2>
-                    <div id="infoModalText">
-                        <button type="button" class="btn btn-primary px-4 py-2 mt-2 rounded-3 text-white" data-bs-dismiss="modal">Forstået</button>
-                    </div>
+
+                    <div id="infoModalText" class="mb-3"></div>
+
+                    <button type="button" class="btn btn-primary px-4 py-2 mt-2 rounded-3 text-white" data-bs-dismiss="modal">Forstået</button>
+
                 </div>
             </div>
         </div>
@@ -157,6 +160,8 @@ require "settings/init.php";
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
 
         var winModal;
@@ -170,20 +175,20 @@ require "settings/init.php";
             'https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=400',
             'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400',
             'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=400',
-            'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400'
+            'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400',
             'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400'
         ];
 
         var wordImagePairs = [
-            { id: 1, word: "Hjertestarter (AED)", image: "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?w=300" },
-            { id: 2, word: "Forbindingskasse", image: "https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=300" },
-            { id: 3, word: "Ambulance", image: "https://images.unsplash.com/photo-1587749091710-304543f092d6?w=300" },
-            { id: 4, word: "Plaster", image: "https://images.unsplash.com/photo-1590611936760-eeb9bc593025?w=300" },
-            { id: 5, word: "Førstehjælpsbog", image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300" },
-            { id: 6, word: "Sikkerhedsvest", image: "https://images.unsplash.com/photo-1516491576580-b522a40a87a0?w=300" },
-            { id: 7, word: "Ispose", image: "https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?w=300" },
-            { id: 8, word: "Nødtelefon 112", image: "https://images.unsplash.com/photo-1507207611509-ec012433ff52?w=300" },
-            { id: 9, word: "Engangshandsker", image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=300" }
+            { id: 1, word: "Hjertestarter (AED)", image: "https://cdn-icons-png.flaticon.com/128/3004/3004458.png" },
+            { id: 2, word: "Forbindingskasse", image: "https://cdn-icons-png.flaticon.com/128/2966/2966327.png" },
+            { id: 3, word: "Ambulance", image: "https://cdn-icons-png.flaticon.com/128/1040/1040243.png" },
+            { id: 4, word: "Plaster", image: "https://cdn-icons-png.flaticon.com/128/2376/2376104.png" },
+            { id: 5, word: "Førstehjælpsbog", image: "https://cdn-icons-png.flaticon.com/128/3308/3308557.png" },
+            { id: 6, word: "Sikkerhedsvest", image: "https://cdn-icons-png.flaticon.com/128/9500/9500057.png" },
+            { id: 7, word: "Ispose", image: "https://cdn-icons-png.flaticon.com/128/2038/2038164.png" },
+            { id: 8, word: "Nødtelefon 112", image: "https://cdn-icons-png.flaticon.com/128/159/159832.png" },
+            { id: 9, word: "Engangshandsker", image: "https://cdn-icons-png.flaticon.com/128/4804/4804153.png" }
         ];
 
         var firstCard = null;
@@ -227,6 +232,7 @@ require "settings/init.php";
            const container = document.getElementById("gameContainer");
            const gameTitle = document.getElementById("gameTitle");
            const infoModalText = document.getElementById("infoModalText");
+           const infoModalTitle = document.querySelector("#infoModal .modal-body h2");
 
 
            container.innerHTML = "";
@@ -245,10 +251,13 @@ require "settings/init.php";
            if (currentGameType === 'memory') {
                totalPairsNeeded = 9;
                gameTitle.innerHTML = '<i class="fas fa-star small"></i> Vendespil <i class="fas fa-star small"></i>'
+
+               infoModalTitle.textContent = "Regler: Vendespil"
                infoModalText.innerHTML =
-                   '<p class="text-dark">Vend to kort ad gangen ved at klikke på dem.</p>' +
-                   '<p class="text-dark">Hvert rigtige par giver +100 point.</p>' +
-                   '<p class="text-dark fw-bold text-secondary">Gæt rigtigt i streg for at aktivere din Combo-streak og få endnu flere point!</p>';
+                   '<p class="mb-2"><strong>Formål:</strong> Find alle de matchende førstehjælpsting på færrest mulige forsøg.</p>' +
+                   '<p class="mb-2"><strong>Sådan gør du:</strong> Klik på et kort for at vende det, og prøv derefter at finde dets makker ved at klikke på et andet kort.</p>' +
+                   '<p class="mb-2"><strong>Point:</strong> Hvert rigtigt par giver <strong>100 point</strong>.</p>' +
+                   '<p class="mb-0 text-secondary"><strong>Combo-bonus:</strong> Hvis du finder flere rigtige par i træk (uden fejl), udløser du en streak, som giver ekstra bonuspoint!</p>';
 
                var board = document.createElement('div');
                board.className = 'game-board mx-auto px-2';
@@ -260,7 +269,7 @@ require "settings/init.php";
                deck.forEach(imgUrl => {
                    var card = document.createElement('div');
                    card.className = 'memoryCard';
-                   card.innerHTML = '<div class="card-front"<i class="fas fa-heart"></i></div>' +
+                   card.innerHTML = '<div class="card-front d-flex align-items-center justify-content-center"><img src="images/Logo.svg" alt="Logo" style="width: 70%; height: 70%; object-fit: contain;"></div>' +
                        '<div class="card-back"><img src="' + imgUrl + '"></div>';
                    card.onclick = flipMemoryCard
                    card.dataset.matchKey = imgUrl;
@@ -274,15 +283,18 @@ require "settings/init.php";
            } else if (currentGameType === 'matchWordImage') {
                totalPairsNeeded = wordImagePairs.length;
                gameTitle.innerHTML = '<i class="fas fa-font small"></i> Match ord og billede <i class="fas fa-font small"></i>'
-               infoModalText.innerHTML = '<p class="text-dark">Klik på et ord i venstre side og derefter på det rigtige billede til højre.</p>' +
-                   '<p class="text-dark">Hvert rigtigt match giver +100 point</p>' +
-                   '<p class="text-dark fw-bold text-secondary">Hvis du gætter rigtigt i træk, stiger din Combo og giver ekstra point!</p>';
+
+               infoModalTitle.textContent = "Regler: Match ord & billede";
+               infoModalText.innerHTML = '<p class="mb-2"><strong>Formål:</strong> Forbind det rigtige førstehjælpsbegreb med det korrekte piktogram.</p>' +
+                   '<p class="mb-2"><strong>Sådan gør du:</strong> Klik først på et <strong>ord</strong> i venstre kolonne, og klik derefter på det <strong>billede</strong> i højre kolonne, som du mener passer til ordet.</p>' +
+                   '<p class="mb-2"><strong>Point:</strong> Hvert rigtigt match låser brikkerne og giver <strong>100 point</strong>. Forkerte svar farver brikkerne røde.</p>' +
+                   '<p class="mb-0 text-secondary"><strong>Combo-bonus:</strong> Hvis du finder flere rigtige par i træk (uden fejl), udløser du en streak, som giver ekstra bonuspoint!</p>';
 
 
                var row = document.createElement('div');
                row.className = 'row g-3 mx-auto px-2';
                row.style.maxWidth = '600px';
-               row.innerHTML = '<div class="col-6" id="wordsCol"></div><div class="col-6" id="imagesCol"></div>';
+               row.innerHTML = '<div class="col-6 d-flex flex-column gap-3" id="wordsCol"></div><div class="col-6 d-flex flex-column gap-3" id="imagesCol"></div>';
                container.appendChild(row);
 
                const wordsCol = document.getElementById("wordsCol");
@@ -344,7 +356,7 @@ require "settings/init.php";
                 if (firstCard.dataset.matchKey == secondCard.dataset.matchKey){
                     score += 100;
                     currentStreak++;
-                    handleComboBouns();
+                    handleComboBonus();
 
                     setTimeout(() => {
                         firstCard.classList.add('matched');

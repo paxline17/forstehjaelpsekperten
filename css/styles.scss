@@ -192,9 +192,15 @@ body{
   100% {transform: scale(1);}
 }
 
-.match-card-word, .match-card-word{
-  transition: all 0.2s ease-in-out;
+.match-card-word, .match-card-image{
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out  ;
   user-select: none;
+  box-shadow: 0 2px 4px rabg(0,0,0,0.05);
+  background-color: #fff;
 
   &:hover:not(.matched-done){
     transform: translateY(-2px);
@@ -202,8 +208,20 @@ body{
   }
 }
 
+.match-card-image{
+  padding: 8px;
+}
+
+.match-card-image img{
+  max-width:  100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
 .matched-done{
   cursor: default;
   opacity: 0.6;
+  border-color: #28a745;
+  background-color: #d4edda
 }
 
