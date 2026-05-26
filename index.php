@@ -35,14 +35,14 @@ require "settings/init.php";
 
 <div class="row g-4 mb-4 justify-content-center">
 
-<div class="col-5 col-sm-3">
+<div class="col-5 col-sm-3 mx-md-5">
     <a href="#hjertestop" class="text-decoration-none text-dark text-center border border-dark d-block bg-white p-3">
         <i class="fa-solid fa-heart-pulse"></i>
         <p class="fw-bold mt-2 text-dark">Hjertestop</p>
     </a>
 </div>
 
-<div class="col-5 col-sm-3">
+<div class="col-5 col-sm-3 mx-md-5">
           <a href="#kvælning" class="text-decoration-none text-dark text-center border border-dark d-block bg-white p-3">
         <i class="fa-solid fa-head-side-cough"></i>
     <p class="fw-bold mt-2 text-dark">Kvælning</p>
