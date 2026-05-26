@@ -28,7 +28,7 @@ require "settings/init.php";
 <body>
 
 
-<div class="container">
+<div class="container mb-5 pb-5">
     <h1 class="text-center fw-bold mb-4 fs-5 my-4">Kursusoversigtigt</h1>
     <p class="text-center mb-2 mb-4">Alle kurser kan gennemføres på dansk og engelsk
     <a href="#" class="text-center mb-4 text-decoration-none text-dark">[Læs mere om tilmelding her]</a>
