@@ -38,8 +38,8 @@ require "settings/init.php";
     <div class="col-12 col-lg-4">
         <div class="border border-dark p-3 bg-lightgray">
             <p class="text-center mb-2 ">Basal førstehjælp til børn</p>
-            <p class="small">Sætter deltagerne i stand til at handle ved hjertestop og andre livstruende hændelser, der involverer børn....
-            <span class="collapse" id="collapse1">Kurset dækker hjerte-lunge-redning til børn og spædbørn, håndtering af kvælning samt vurdering af en bevidstløs situation. Det er velegnet til forældre, pædagoger og andre der arbejder med eller passer børn</span></p>
+            <p class="small">Sætter deltagerne i stand til at handle ved hjertestop og andre livstruende hændelser, der involverer børn.
+            <span class="collapse" id="collapse1">Uddannelsen indeholder bl.a. hjerte-lunge-redning, fjernelse af fremmedlegemer i luftvejen og 'alarmsymptomer' ved febersygdomme.</span></p>
 
         <a class="small text-decoration-none text-primary laesmere" data-bs-toggle="collapse" href="#collapse1" role="button" aria-expanded="false">Læs mere</a>
         <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 240 minutter</p>
@@ -52,8 +52,8 @@ require "settings/init.php";
     <div class="col-12 col-lg-4">
         <div class="border border-dark p-3 bg-lightgray">
             <p class="text-center mb-2">Førstehjælp ved hjertestop</p>
-            <p class="small">Omhandle bl.a overlevelsekæden, hjerte-lunge-redning, brug af AED/hjertestarter......
-                <span class="collapse" id="collapse2">Du øver dig i korrekt teknik på en dukke og lærer at betjene en hjertestarter, så du er tryg og klar til at handle, hvis det sker i virkeligheden.</span></p>
+            <p class="small">Førstehjælp ved Hjertestop omhandler bl.a. overlevelseskæden, hjerte-lunge-redning, brug af AED/hjertestarter, fjernelse af fremmedlegemer i luftvejen, lejring af bevidstløse og alarmering.
+                <span class="collapse" id="collapse2">Uddannelsen kan gennemføres selvstændigt eller i sammenhæng med øvrige førstehjælpsuddannelser..</span></p>
 
             <a class="small text-decoration-none text-primary laesmere" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false">Læs mere</a>
             <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 240 minutter</p>
@@ -66,8 +66,8 @@ require "settings/init.php";
     <div class="col-12 col-lg-4">
         <div class="border border-dark p-3 bg-lightgray">
             <p class="text-center mb-2">Førstehjælp ved ulykker</p>
-            <p class="small">Omhandler bl.a førstehjælps hovdepunkter og sætte deltagerne i stand til at handle på et ulykkested
-            <span class="collapse" id="collapse3"> Du lærer at sikre skadestedet, vurdere tilskadekomne og prioritere din indsats, indtil professionel hjælp ankommer.</span></p>
+            <p class="small">Omhandler bl.a førstehjælps hovdepunkter og sætte deltagerne i stand til at handle på et ulykkested.
+            <span class="collapse" id="collapse3"> Førstehjælp ved ulykker skal altid gennemføres i sammenhæng med basisuddannelsen “Førstehjælp ved Hjertestop” eller en eller flere tilvalgsuddannelser.</span></p>
 
             <a class="small text-decoration-none text-primary laesmere" data-bs-toggle="collapse" href="#collapse3" role="button" aria-expanded="false">Læs mere</a>
             <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 120 minutter</p>
@@ -83,8 +83,8 @@ require "settings/init.php";
     <div class="col-12 col-lg-4">
         <div class="border border-dark p-3 bg-lightgray">
             <p class="text-center mb-2">Færdselsrelateret førstehjælp</p>
-            <p class="small">Færdselsrelateret førstehjælp bil/MC/traktor er kompetencegivende i henhold til kørekortbekendtgærelsen ....
-            <span class="collapse" id="collapse4">Kurset er relevant for alle med kørekort til bil, MC eller traktor, og dækker håndtering af typiske trafikuheld, herunder bevidstløse personer og blødninger.</span></p>
+            <p class="small">Færdselsrelateret førstehjælp bil/MC/traktor er kompetencegivende i henhold til kørekortbekendtgærelsen.
+            <span class="collapse" id="collapse4"> Udannelsen er gennemført i sammenhæng med basisuddannelsen Førstehjælp ved Hjertestop.</span></p>
 
             <a class="small text-decoration-none text-primary laesmere" data-bs-toggle="collapse" href="#collapse4" role="button" aria-expanded="false">Læs mere</a>
             <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 240 minutter</p>
@@ -101,8 +101,8 @@ require "settings/init.php";
     <div class="col-12 col-lg-4">
         <div class="border border-dark p-3 bg-lightgray">
             <p class="text-center mb-2">Opdatering af førstehjælp ved hjertestop</p>
-            <p class="small">Opdateringsuddannelsen repeterer og opdaterer tidligere indlærte kompetencer i forhold til førstehjælp ved hjertestop.....
-            <span class="collapse" id="collapse5">Det anbefales at opdatere sine kompetencer hvert andet år, så du fortsat er klar til at handle hurtigt og korrekt, når det gælder.</span></p>
+            <p class="small">Opdateringsuddannelsen repeterer og opdaterer tidligere indlærte kompetencer i forhold til førstehjælp ved hjertestop.
+            <span class="collapse" id="collapse5">Uddannelsen kan gennemføres selvstændigt eller i sammenhæng med øvrige førstehjælpsuddannelser.</span></p>
 
             <a class="small text-decoration-none text-primary laesmere" data-bs-toggle="collapse" href="#collapse5" role="button" aria-expanded="false">Læs mere</a>
             <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 180 minutter</p>
@@ -115,8 +115,8 @@ require "settings/init.php";
   <div class="col-12 col-lg-4">
         <div class="border border-dark p-3 bg-lightgray">
             <p class="text-center mb-2">Opdatering af basal førstehjælp</p>
-            <p class="small">Opdateringsuddannelsen vedligeholder og opdaterer indholdet af basisuddannelsen....
-                <span class="collapse" id="collapse6">Kurset sikrer at dine færdigheder holdes ved lige og er i overensstemmelse med de nyeste retningslinjer inden for førstehjælp.</span></p>
+            <p class="small">Opdateringsuddannelsen vedligeholder og opdaterer indholdet af basisuddannelsen.
+                <span class="collapse" id="collapse6">Førstehjælp ved ulykker, men opdaterer desuden deltagerens kompetencer inden for en række livreddende førstehjælpstiltag, f.eks. fjernelse af fremmedlegemer i luftvejen, livstruende blødninger og livstruende forbrændinger.</span></p>
 
             <a class="small text-decoration-none text-primary laesmere" data-bs-toggle="collapse" href="#collapse6" role="button" aria-expanded="false">Læs mere</a>
             <p class="small"><i class="fa-solid fa-clock"></i>Varighed: 180 minutter</p>
