@@ -26,10 +26,8 @@ require "settings/init.php";
 </head>
 
 
-<div class="d-flex align-items-center justify-content-center">
-<img src="images/Logo.svg" alt="logo" style="height: 80px;">
-<img src="images/NavnUdenLogo.svg" alt="logo" style="height: 250px; margin-left: -70px;">
-</div>
+<img src="images/logozoe.svg" alt="logo" style="height: 80px;">
+
 
 <div class="container">
 
