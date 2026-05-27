@@ -44,7 +44,7 @@ require "settings/init.php";
         <a class="small text-decoration-none text-primary laesmere d-block mb-2" data-bs-toggle="collapse" href="#collapse1" role="button" aria-expanded="false">Læs mere</a>
         <p class="small mb-1"><i class="fa-solid fa-clock"></i>Varighed: 240 minutter</p>
     </div>
-        <a href="#" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
+        <a href="https://nhls.dk/KursusKatalog" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
              Tilmeld <i class="fa-solid fa-arrow-right"></i>
         </a>
     </div>
@@ -58,7 +58,7 @@ require "settings/init.php";
             <a class="small text-decoration-none text-primary laesmere d-block mb-2" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false">Læs mere</a>
             <p class="small mb-1"><i class="fa-solid fa-clock"></i>Varighed: 240 minutter</p>
         </div>
-        <a href="#" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
+        <a href="https://nhls.dk/KursusKatalog" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
              Tilmeld <i class="fa-solid fa-arrow-right"></i>
     </a>
     </div>
@@ -75,7 +75,7 @@ require "settings/init.php";
         <div class="border border-top-0 border-dark p-2 text-center bg-lightgray">
             <p class="small mb-2">Klar <strong>"Hjertestop"</strong>før denne</p>
         </div>
-        <a href="#" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
+        <a href="https://nhls.dk/KursusKatalog" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
              Tilmeld <i class="fa-solid fa-arrow-right"></i>
     </a>
     </div>
@@ -92,7 +92,7 @@ require "settings/init.php";
         <div class="border border-top-0 border-dark p-2 text-center bg-lightgray bg-lightgray">
             <p class="small mb-2">Klar <strong>"Hjertestop"</strong>før denne</p>
         </div>
-        <a href="#" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
+        <a href="https://nhls.dk/KursusKatalog" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
              Tilmeld <i class="fa-solid fa-arrow-right"></i>
     </a>
     </div>
@@ -107,7 +107,7 @@ require "settings/init.php";
             <a class="small text-decoration-none text-primary laesmere d-block mb-2" data-bs-toggle="collapse" href="#collapse5" role="button" aria-expanded="false">Læs mere</a>
             <p class="small mb-1"><i class="fa-solid fa-clock"></i>Varighed: 180 minutter</p>
         </div>
-        <a href="#" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
+        <a href="https://nhls.dk/KursusKatalog" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
             Tilmeld <i class="fa-solid fa-arrow-right"></i>
         </a>
     </div>
@@ -121,7 +121,7 @@ require "settings/init.php";
             <a class="small text-decoration-none text-primary laesmere d-block mb-2" data-bs-toggle="collapse" href="#collapse6" role="button" aria-expanded="false">Læs mere</a>
             <p class="small mb-1"><i class="fa-solid fa-clock"></i>Varighed: 180 minutter</p>
         </div>
-        <a href="#" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
+        <a href="https://nhls.dk/KursusKatalog" class="border border-top-0 border-dark p-2 d-flex justify-content-between text-dark bg-lightgray">
             Tilmeld <i class="fa-solid fa-arrow-right"></i>
         </a>
     </div>
