@@ -422,11 +422,17 @@ require "settings/init.php";
                     currentStreak++;
                     handleComboBonus();
 
-                    selectedWordCard.classList.remove('border-primary', 'bg-light', 'border-secondary')
-                    selectedImageCard.classList.remove('border-primary', 'bg-light', 'border-secondary')
+                    var correctWord = selectedWordCard;
+                    var correctImage = selectedImageCard;
+
+                    selectedWordCard.classList.remove('border-primary', 'bg-light')
+                    selectedImageCard.classList.remove('border-primary', 'bg-light')
 
                     selectedWordCard.classList.add('border-primary', 'bg-light', 'border-secondary')
                     selectedImageCard.classList.add('border-primary', 'bg-light', 'border-secondary')
+
+                    correctWord.classList.add('matched-done');
+                    correctImage.classList.add('matched-done');
 
                     matches++;
                     selectedWordCard = null;
@@ -439,6 +445,8 @@ require "settings/init.php";
                     var tempW = selectedWordCard, tempI = selectedImageCard;
                     tempW.classList.add('border-danger', 'bg-danger-subtle');
                     tempI.classList.add('border-danger', 'bg-danger-subtle');
+
+
 
                     selectedWordCard = null;
                     selectedImageCard = null;
@@ -494,8 +502,22 @@ require "settings/init.php";
             document.getElementById('streakBadge').classList.add('d-none');
 
             document.getElementById('finalMoves').textContent = moves;
-            document.getElementById('finalTime').textContent = document.getElementById('time').textContent;
+
+            var finalTimeText = document.getElementById('time').textContent;
+            document.getElementById('finalTime').textContent = finalTimeText;
             document.getElementById('finalScore').textContent = score;
+
+            let memoryHighscore = JSON.parse(localStorage.getItem('memory_highscore')) || { score: 0, time: "99:59", seconds: 99999 };
+            let matchHighscore = JSON.parse(localStorage.getItem('memory_highscore')) || { score: 0, time: "99:59", seconds: 99999 };
+
+            if (currentGameType === 'memory') {
+                if (score > memoryHighscore.score || (score === memoryHighscore.score && seconds < memoryHighscore.seconds)){
+                    localStorage.setItem('memory_highscore', JSON.stringify({score: score, finalTimeText, seconds: seconds}));
+                }
+            } else if (currentGameType === 'matchWordImage'){
+                if (score > matchHighscore.score || (score === matchHighscore.score && seconds < matchHighscore.seconds)){
+                    localStorage.setItem('match_highscore', JSON.stringify({score: score, finalTimeText, seconds: seconds}));
+            }
 
             winModal.show();
         }

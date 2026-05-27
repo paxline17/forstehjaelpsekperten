@@ -35,7 +35,7 @@ require "settings/init.php";
             <i class="fa-solid fa-user fa-2xl mb-3"></i>
         </div>
         <h5 id="profileDisplayName" class="fw-bold mb-1 fs-4">Emil Østergaard</h5>
-        <p class="text-muted small">
+        <p class="small">
             <span id="profileDisplayEmail">Emil.oest@mail.dk</span>
             <span class="mx-1">|</span>
             <span id="profileDisplayPhonenumber">+45 52 40 18 39</span>
@@ -146,7 +146,7 @@ require "settings/init.php";
 
                     <div class="collapse bg-body-tertiary border-bottom border-light-subtle" id="contactUs">
                         <div class="p-3">
-                            <p class="small text-muted mb-2">Har du brug for hjælp? Du kan fange os her:</p>
+                            <p class="small mb-2">Har du brug for hjælp? Du kan fange os her:</p>
                             <div class="d-flex align-items-center mb-2">
                                 <i class="fa-solid fa-envelope me-2"></i>
                                 <a href="info@nhls.dk" class="text-dark small text-decoration-none">info@nhls.dk</a>
@@ -165,7 +165,32 @@ require "settings/init.php";
                     <i class="fa-solid fa-arrow-right rotate-icon"></i>
                     </button>
 
-                    <div class="collapse" id="points"></div>
+                    <div class="collapse bg-body-tertiary border-bottom border-light-subtle" id="points">
+                        <div class="p-3">
+                            <h6 class="fw-bold mb-3 small"><i class="fa-solid fa-trophy me-2"></i>Dine Personlige Rekorder</h6>
+
+                            <div class="mb-3 border-bottom pb-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-medium small">VendeSpil</span>
+                                    <span id="profilMemoryScore" class="fw-bold text-dark">0 point</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="footer-small">Bedste tid</span>
+                                    <span id="profilMemoryTime">--:--</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-medium small">Match ord og billede</span>
+                                    <span id="profilMatchScore" class="fw-bold text-dark">0 point</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="footer-small">Bedste tid</span>
+                                    <span id="profilMatchTime">--:--</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -236,6 +261,23 @@ include("includes/navbar.php" );
     moonIcon.addEventListener('click', function (){
         moonIcon.classList.replace('text-muted', 'text-dark');
         sunIcon.classList.replace('text-dark', 'text-muted');
+    });
+
+    document.addEventListener("DOMContentLoaded", function (){
+
+        const memoryData = JSON.parse(localStorage.getItem('memory_highscore'));
+        const matchData = JSON.parse(localStorage.getItem('match_highscore'));
+
+        if (memoryData){
+            document.getElementById('profilMemoryScore').textContent = memoryData.score + "point";
+            document.getElementById('profilMemoryTime').textContent = memoryData.time;
+        }
+
+        if (matchData){
+            document.getElementById('profilMatchScore').textContent = matchData.score + "point";
+            document.getElementById('profilMatchTime').textContent = matchData.time;
+        }
+
     });
 
 </script>
