@@ -89,8 +89,8 @@ $selectedId = isset($_GET['id']) ? $_GET['id'] : null;
                     <span class="position-absolute top-50 start-0 translate-middle-y ms-3">
                         <i class="fa-solid fa-magnifying-glass text-dark"></i>
                     </span>
-                    <input type="text" class="form-control rounded-pill border-primary border-2 ps-5 py-2" placeholder="Søg">
-                    <button class="btn btn-sm rounded-circle position-absolute top-50 end-0 translate-middle-y me-3 d-flex align-items-center justify-content-center p-0">
+                    <input type="text" id="searchInput" class="form-control rounded-pill border-primary border-2 ps-5 py-2" placeholder="Søg">
+                    <button id="clearSearch" class="btn btn-sm rounded-circle position-absolute top-50 end-0 translate-middle-y me-3 d-flex align-items-center justify-content-center p-0">
                         <i class="fa-solid fa-xmark small"></i>
                     </button>
                 </div>
@@ -104,7 +104,7 @@ $selectedId = isset($_GET['id']) ? $_GET['id'] : null;
 
         <div class="row row-cols-2 row-cols-md-4 g-4 justify-content-center">
             <?php foreach ($guides as $id => $guide): ?>
-                <div class="col">
+                <div class="col guide-card" data-title="<?php echo strtolower($guide['titel']); ?>">
                     <a href="guides.php?id=<?php echo $id; ?>" class="text-decoration-none">
                         <div class="ratio ratio-1x1">
                             <div class="d-flex flex-column justify-content-center align-items-center text-center bg-white border border-2 border-dark py-4 py-md-5 px-3 h-100">
@@ -158,6 +158,38 @@ $selectedId = isset($_GET['id']) ? $_GET['id'] : null;
 <?php
 include("includes/navbar.php");
 ?>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const searchInput = document.getElementById("searchInput");
+                const clearSearch = document.getElementById("clearSearch");
+                const guideCards = document.querySelectorAll(".guide-card");
+
+                if (!searchInput) return;
+
+                searchInput.addEventListener("input", function () {
+                    const query = searchInput.value.toLowerCase().trim();
+
+                    guideCards.forEach(function (card) {
+                        const title = card.getAttribute("data-title");
+
+                        if (title.includes(query)) {
+                            card.style.display = "";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+                });
+
+                clearSearch.addEventListener("click", function () {
+                    searchInput.value = "";
+                    guideCards.forEach(function (card) {
+                        card.style.display = "";
+                    });
+                    searchInput.focus();
+                });
+            });
+        </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
