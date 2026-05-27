@@ -96,7 +96,7 @@ $selectedId = isset($_GET['id']) ? $_GET['id'] : null;
                 </div>
             </div>
             <div class="col-2 col-md-1 text-center">
-                <button class="btn p-0 border-0" data-bs-toggle="modal" data-bs-target="#infoModal">
+                <button class="btn btn-link p-0 border-0" data-bs-toggle="modal" data-bs-target="#infoModal">
                     <i class="fa-solid fa-circle-info fs-1"></i>
                 </button>
             </div>
@@ -127,8 +127,8 @@ $selectedId = isset($_GET['id']) ? $_GET['id'] : null;
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4 pt-0 text-center">
-                    <i class="fa-solid fa-circle-info text-primary mb-3" style="font-size: 3rem;"></i>
-                    <h4 class="fw-bold mb-3">Sådan gør du</h4>
+                    <i class="fa-solid fa-circle-info text-info mb-3" style="font-size: 3rem;"></i>
+                    <h4 class="fw-bold text-primary mb-3">Sådan gør du</h4>
                     <p class="mb-4">
                         Her på siden finder du guides til hvad du skal gøre hvis du er ude for en nødsituation.
                     </p>
