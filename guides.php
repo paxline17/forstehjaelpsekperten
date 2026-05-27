@@ -135,7 +135,7 @@ $selectedId = isset($_GET['id']) ? $_GET['id'] : null;
                     <div class="p-3 mb-4 border">
                         <p class="mb-0 small">
                             <strong>Tip:</strong>
-                            Se videoerne for at få en bedre forståelse for de forskellige guides
+                            Brug søgemenuen for nemmere at finde den guide du leder efter
                         </p>
                     </div>
                     <p>
