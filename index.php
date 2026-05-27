@@ -25,22 +25,24 @@ require "settings/init.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
+
+<img src="images/logozoe.svg" alt="logo" class="d-block mx-auto w-50" style="height: 130px;">
+
 
 <div class="container">
 
 <p class="text-center mb-3">Akutte guides</p>
 
-<div class="row g-3 mb-4 justify-content-center">
+<div class="row g-4 mb-4 justify-content-center">
 
-<div class="col-5 col-sm-3">
+<div class="col-5 col-sm-3 mx-md-5">
     <a href="#hjertestop" class="text-decoration-none text-dark text-center border border-dark d-block bg-white p-3">
         <i class="fa-solid fa-heart-pulse"></i>
         <p class="fw-bold mt-2 text-dark">Hjertestop</p>
     </a>
 </div>
 
-<div class="col-5 col-sm-3">
+<div class="col-5 col-sm-3 mx-md-5">
           <a href="#kvælning" class="text-decoration-none text-dark text-center border border-dark d-block bg-white p-3">
         <i class="fa-solid fa-head-side-cough"></i>
     <p class="fw-bold mt-2 text-dark">Kvælning</p>
@@ -58,6 +60,10 @@ require "settings/init.php";
 </a>
 
 </div>
+
+<?php
+include("includes/navbar.php" );
+?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
