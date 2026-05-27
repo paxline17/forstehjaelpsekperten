@@ -36,7 +36,7 @@ require "settings/init.php";
             <div class="row g-3 px-2">
 
                 <div class="col-12 col-md-6">
-                    <div class="bg-white border border-lightgray rounded-3 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer p-4 menu-card" onclick="navigateTo('page-game'); startNewGame('memory');">
+                    <div class="bg-white border border-dark rounded-3 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer p-4 menu-card" onclick="navigateTo('page-game'); startNewGame('memory');">
                         <div class="menu mb-2 d-flex align-items-center justify-content-center rounded">
                             <i class="fas fa-th fs-1 text-secondary"></i>
                         </div>
@@ -45,7 +45,7 @@ require "settings/init.php";
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <div class="bg-white border border-lightgray rounded-3 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer p-4 menu-card" onclick="navigateTo('page-game'); startNewGame('matchWordImage');">
+                    <div class="bg-white border border-dark rounded-3 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer p-4 menu-card" onclick="navigateTo('page-game'); startNewGame('matchWordImage');">
                         <div class="menu mb-2 d-flex align-items-center justify-content-center rounded">
                             <i class="fas fa-font text-primary fs-1"></i>
                         </div>
@@ -54,7 +54,7 @@ require "settings/init.php";
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <div class="bg-white border border-lightgray rounded-3 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer p-4 menu-card">
+                    <div class="bg-white border border-dark rounded-3 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer p-4 menu-card">
                         <div class="menu mb-2 d-flex align-items-center justify-content-center rounded">
                             <i class="fas fa-clock fs-1"></i>
                         </div>
@@ -63,7 +63,7 @@ require "settings/init.php";
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <div class="bg-white border border-lightgray rounded-3 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer p-4 menu-card">
+                    <div class="bg-white border border-dark rounded-3 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden shadow-sm cursor-pointer p-4 menu-card">
                         <div class="menu mb-2 d-flex align-items-center justify-content-center rounded">
                             <i class="fas fa-clock fs-1"></i>
                         </div>
@@ -174,27 +174,27 @@ require "settings/init.php";
         var currentGameType = "memory"
 
         var memoryImages = [
-            'https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=400',
-            'https://images.unsplash.com/photo-1548681528-6a5c45b66b42?w=400',
-            'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?w=400',
-            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=400',
-            'https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=400',
-            'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400',
-            'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=400',
-            'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400',
-            'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400'
+            'images/ambulance.svg',
+            'images/Engangshandsker.svg',
+            'images/ispose.svg',
+            'images/nødtelefon.svg',
+            'images/plaster.svg',
+            'images/sikkerhedsvest.svg',
+            'images/førstehjælpsbog.svg',
+            'images/Førstehjælpskasse.svg',
+            'images/hjertestarter.svg'
         ];
 
         var wordImagePairs = [
-            { id: 1, word: "Hjertestarter (AED)", image: "https://cdn-icons-png.flaticon.com/128/3004/3004458.png" },
-            { id: 2, word: "Forbindingskasse", image: "https://cdn-icons-png.flaticon.com/128/2966/2966327.png" },
-            { id: 3, word: "Ambulance", image: "https://cdn-icons-png.flaticon.com/128/1040/1040243.png" },
-            { id: 4, word: "Plaster", image: "https://cdn-icons-png.flaticon.com/128/2376/2376104.png" },
-            { id: 5, word: "Førstehjælpsbog", image: "https://cdn-icons-png.flaticon.com/128/3308/3308557.png" },
-            { id: 6, word: "Sikkerhedsvest", image: "https://cdn-icons-png.flaticon.com/128/9500/9500057.png" },
-            { id: 7, word: "Ispose", image: "https://cdn-icons-png.flaticon.com/128/2038/2038164.png" },
-            { id: 8, word: "Nødtelefon 112", image: "https://cdn-icons-png.flaticon.com/128/159/159832.png" },
-            { id: 9, word: "Engangshandsker", image: "https://cdn-icons-png.flaticon.com/128/4804/4804153.png" }
+            { id: 1, word: "Ambulance", image: "images/ambulance.svg" },
+            { id: 2, word: "Engangshandsker", image: "images/Engangshandsker.svg" },
+            { id: 3, word: "Ispose", image: "images/ispose.svg" },
+            { id: 4, word: "Nødtelefon 112", image: "images/nødtelefon.svg" },
+            { id: 5, word: "Plaster", image: "images/plaster.svg" },
+            { id: 6, word: "Sikkerhedsvest", image: "images/sikkerhedsvest.svg" },
+            { id: 7, word: "Førstehjælpsbog", image: "images/førstehjælpsbog.svg" },
+            { id: 8, word: "Førstehjælpskasse", image: "images/Førstehjælpskasse.svg" },
+            { id: 9, word: "Hjertestarter (AED)", image: "images/hjertestarter.svg" }
         ];
 
         var firstCard = null;
@@ -298,9 +298,9 @@ require "settings/init.php";
 
 
                var row = document.createElement('div');
-               row.className = 'row g-3 mx-auto px-2';
+               row.className = 'row g-3 px-1 mx-auto flex-nowrap';
                row.style.maxWidth = '600px';
-               row.innerHTML = '<div class="col-6 d-flex flex-column gap-3" id="wordsCol"></div><div class="col-6 d-flex flex-column gap-3" id="imagesCol"></div>';
+               row.innerHTML = '<div class="col-6 d-flex flex-column gap-2" id="wordsCol"></div><div class="col-6 d-flex flex-column gap-2" id="imagesCol"></div>';
                container.appendChild(row);
 
                const wordsCol = document.getElementById("wordsCol");
@@ -327,7 +327,7 @@ require "settings/init.php";
 
                imagesDeck.forEach(item => {
                    var card = document.createElement('div');
-                   card.className = 'match-card-image border border-secondary border-2 cursor-pointer';
+                   card.className = 'match-card-image bg-white border border-secondary border-2 rounded-3  mb-2 text-center fw-bold cursor-pointer';
                    card.innerHTML = '<img src="' + item.imgUrl + '">';
                    card.dataset.pairId = item.id;
                    card.onclick = selectImageElement;
@@ -508,7 +508,7 @@ require "settings/init.php";
             document.getElementById('finalScore').textContent = score;
 
             let memoryHighscore = JSON.parse(localStorage.getItem('memory_highscore')) || { score: 0, time: "99:59", seconds: 99999 };
-            let matchHighscore = JSON.parse(localStorage.getItem('memory_highscore')) || { score: 0, time: "99:59", seconds: 99999 };
+            let matchHighscore = JSON.parse(localStorage.getItem('match_highscore')) || { score: 0, time: "99:59", seconds: 99999 };
 
             if (currentGameType === 'memory') {
                 if (score > memoryHighscore.score || (score === memoryHighscore.score && seconds < memoryHighscore.seconds)){
@@ -517,6 +517,7 @@ require "settings/init.php";
             } else if (currentGameType === 'matchWordImage'){
                 if (score > matchHighscore.score || (score === matchHighscore.score && seconds < matchHighscore.seconds)){
                     localStorage.setItem('match_highscore', JSON.stringify({score: score, finalTimeText, seconds: seconds}));
+                }
             }
 
             winModal.show();
