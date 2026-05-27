@@ -4,11 +4,26 @@
     "ikon": "fa-heartbeat",
     "billede": "images/Hjertestop.svg",
     "trin": [
-      "Skab sikkerhed",
-      "Tjek bevidsthed",
-      "Ring 1-1-2 omgående",
-      "Start hjertemassage (Giv 30 tryk efterfulgt af 2 indblæsninger)",
-      "Brug en hjertestarter (AED)"
+      {
+        "titel": "Skab sikkerhed",
+        "info": "Sørg for, at der ikke er fare for dig selv, den tilskadekomne eller andre omkringstående, før du yder førstehjælp."
+      },
+      {
+        "titel": "Tjek bevidsthed",
+        "info": "Rusk forsigtigt i personen og råb højt: 'Vågn op! Hvad er der sket?'. Hvis personen ikke reagerer, er de bevidstløse."
+      },
+      {
+        "titel": "Ring 1-1-2 omgående",
+        "info": "Ring 1-1-2 eller få en anden til det. Sæt telefonen på højttaler, så du har frie hænder til at udføre førstehjælp."
+      },
+      {
+        "titel": "Start hjertemassage (Giv 30 tryk efterfulgt af 2 indblæsninger)",
+        "info": "Placer begge hænder midt på brystkassen. Tryk hårdt og hurtigt 30 gange (dybde på 5-6 cm, tempo 100-120 tryk/min) efterfulgt af 2 rolige indblæsninger."
+      },
+      {
+        "titel": "Brug en hjertestarter (AED)",
+        "info": "Tænd hjertestarteren så snart den ankommer, og følg de talte instruktioner nøje. Sæt elektroderne på brystkassen som vist på tegningerne."
+      }
     ]
   },
   "kvælning": {
@@ -16,10 +31,22 @@
     "ikon": "fa-head-side-cough",
     "billede": "images/Kvælning.svg",
     "trin": [
-      "Hjælp personen med at hoste",
-      "Giv op til 5 slag i ryggen",
-      "Giv op til 5 mavestød (Heimlich-manøvrer)",
-      "Hvis personen mister bevidstheden (Ring 112)"
+      {
+        "titel": "Hjælp personen med at hoste",
+        "info": "Opmuntr personen til at hoste kraftigt. Dette er den mest effektive måde at fjerne et fremmedlegeme på."
+      },
+      {
+        "titel": "Giv op til 5 slag i ryggen",
+        "info": "Bøj personen forover. Slå kraftigt med håndroden midt mellem personens skulderblade. Tjek efter hvert slag, om genstanden har løsnet sig."
+      },
+      {
+        "titel": "Giv op til 5 mavestød (Heimlich-manøvrer)",
+        "info": "Stil dig bag personen, læg en knyttet hånd på den øverste del af maven (under ribbenene) og træk hårdt indad og opad."
+      },
+      {
+        "titel": "Hvis personen mister bevidstheden (Ring 112)",
+        "info": "Grib personen, så de ikke falder hårdt. Ring 1-1-2 med det samme og påbegynd hjerte-lunge-redning (30 tryk og 2 indblæsninger)."
+      }
     ]
   },
   "forbrænding": {
@@ -27,10 +54,22 @@
     "ikon": "fa-fire",
     "billede": "images/Forbrænding.svg",
     "trin": [
-      "Afkøl området",
-      "Fjern tøj (Hvis det er muligt)",
-      "Beskyt såret",
-      "Smertelindring"
+      {
+        "titel": "Afkøl området",
+        "info": "Skyl omgående med rindende, lunkent vand (ca. 20 grader). Fortsæt skylningen i minimum 20 minutter eller til smerten aftager."
+      },
+      {
+        "titel": "Fjern tøj (Hvis det er muligt)",
+        "info": "Fjern forsigtigt tøj og smykker fra det forbrændte område. Hvis tøjet har brændt sig fast i huden, må du IKKE række eller hive i det – klip udenom."
+      },
+      {
+        "titel": "Beskyt såret",
+        "info": "Dæk forbrændingen løst til med en ren, fugtig klud, plastikfilm (husholdningsfilm) eller en steril forbinding for at undgå infektion."
+      },
+      {
+        "titel": "Smertelindring",
+        "info": "Hold øje med personen. Ved større forbrændinger eller forbrændinger på hænder, ansigt eller luftveje, skal du straks søge læge eller ringe 1-1-2."
+      }
     ]
   },
   "blødning": {
@@ -38,11 +77,26 @@
     "ikon": "fa-tint",
     "billede": "images/Blødning.svg",
     "trin": [
-      "Stop blødningen",
-      "Lejr personen",
-      "Læg en forbinding",
-      "Anvend tourniquet ved massiv blødning",
-      "Forebyg chok og ring 1-1-2"
+      {
+        "titel": "Stop blødningen",
+        "info": "Tryk direkte på såret med en finger, din hånd eller en ren klud for at standse blodet. Hæv om muligt det blødende sted over hjertehøjde."
+      },
+      {
+        "titel": "Lejr personen",
+        "info": "Bed den tilskadekomne om at lægge sig ned. Dette mindsker blodtrykket og forebygger chok samt besvimelse."
+      },
+      {
+        "titel": "Læg en forbinding",
+        "info": "Anlæg en fast trykforbinding over såret. Hvis blodet skyder igennem, må du ikke fjerne den første forbinding – læg blot en ny stramt ovenpå."
+      },
+      {
+        "titel": "Anvend tourniquet ved massiv blødning",
+        "info": "Hvis en blødning fra en arm eller et ben er livstruende og ikke kan stoppes, anvendes en tourniquet (eller et stramt bælte/klud) over såret for helt at afsnøre blodtilførslen."
+      },
+      {
+        "titel": "Forebyg chok og ring 1-1-2",
+        "info": "Hold personen varm, rolig og tryg. Ring 1-1-2, hvis blødningen er kraftig, eller hvis personen udviser tegn på chok."
+      }
     ]
   },
   "bevidstløshed": {
@@ -50,11 +104,26 @@
     "ikon": "fa-user-slash",
     "billede": "images/Bevidstløshed.svg",
     "trin": [
-      "Tjek bevidsthed",
-      "Råb om hjælp",
-      "Skab frie luftveje",
-      "Tjek vejrtrækningen",
-      "Ring 1-1-2"
+      {
+        "titel": "Tjek bevidsthed",
+        "info": "Rusk forsigtigt i personen og råb højt. Hvis der ikke er noget svar, er personen bevidstløs."
+      },
+      {
+        "titel": "Råb om hjælp",
+        "info": "Råb højt for at tilkalde opmærksomhed fra folk i nærheden, så du ikke står alene med situationen."
+      },
+      {
+        "titel": "Skab frie luftveje",
+        "info": "Placer en hånd på panden og to fingre under hagen. Bøj personens hoved forsigtigt bagover for at løfte tungen væk fra luftvejen."
+      },
+      {
+        "titel": "Tjek vejrtrækningen",
+        "info": "Læg dit øre tæt til personens mund. Se om brystkassen hæver sig, lyt efter vejrtrækning, og føl efter udåndingsluft mod din kind i op til 10 sekunder."
+      },
+      {
+        "titel": "Ring 1-1-2",
+        "info": "Hvis personen trækker vejret normalt: Læg dem i stabilt sideleje og ring 1-1-2. Hvis de IKKE trækker vejret normalt: Start hjerte-lunge-redning omgående."
+      }
     ]
   },
   "brud": {
@@ -62,10 +131,22 @@
     "ikon": "fa-bone",
     "billede": "images/Brud.svg",
     "trin": [
-      "Hold personen i ro",
-      "Støt brudstedet",
-      "Dæk åbne sår",
-      "Køl ned og løft"
+      {
+        "titel": "Hold personen i ro",
+        "info": "Undgå unødig bevægelse af det skadede område, da det kan forværre bruddet, beskadige nerver eller give indre blødninger."
+      },
+      {
+        "titel": "Støt brudstedet",
+        "info": "Immobiliser det brækkede ben eller arm. Brug puder, sammenrullede tæpper eller en provisorisk skinne til at støtte området i den stilling, det befinder sig i."
+      },
+      {
+        "titel": "Dæk åbne sår",
+        "info": "Hvis der er tale om et åbent brud, hvor knoglen stikker ud, skal såret dækkes løst med en steril eller ren forbinding for at minimere infektionsfare."
+      },
+      {
+        "titel": "Køl ned og løft",
+        "info": "Læg en ispose (pakket ind i et viskestykke) på bruddet for at dæmpe smerte og hævelse. Ring til lægevagten, skadestuen eller 1-1-2 ved store brud."
+      }
     ]
   },
   "shock": {
@@ -73,11 +154,26 @@
     "ikon": "fa-bolt",
     "billede": "images/Shock.svg",
     "trin": [
-      "Lejr den tilskadekomne",
-      "Stop blødning",
-      "Hold personen varm",
-      "Berolig og skab ro",
-      "Ingen mad eller drikke"
+      {
+        "titel": "Lejr den tilskadekomne",
+        "info": "Hjælp personen med at lægge sig fladt ned på ryggen. Hvis muligt, hæves personens ben ca. 20-30 cm for at lede blodet tilbage til de vitale organer."
+      },
+      {
+        "titel": "Stop blødning",
+        "info": "Hvis chokket skyldes en synlig eller kraftig blødning, skal denne stoppes omgående med et fast tryk eller en trykforbinding."
+      },
+      {
+        "titel": "Hold personen varm",
+        "info": "Læg tæpper, jakker eller lignende over og under personen. Ved chok mister kroppen hurtigt evnen til at regulere varmen."
+      },
+      {
+        "titel": "Berolig og skab ro",
+        "info": "Bliv hos personen, tal beroligende og hold dem i hånden. Ring 1-1-2 med det samme, da kredsløbschok er en livstruende tilstand."
+      },
+      {
+        "titel": "Ingen mad eller drikke",
+        "info": "Giv ALDRIG en person i chok noget at spise eller drikke (heller ikke vand), da det kan medføre opkastning eller besvære en eventuel akut operation."
+      }
     ]
   },
   "forgiftning": {
@@ -85,11 +181,26 @@
     "ikon": "fa-skull-crossbones",
     "billede": "images/Forgiftning.svg",
     "trin": [
-      "Fjern giften",
-      "Fremkald ALDIRG opkastning",
-      "Fortynd giften",
-      "Skab stabilt sideleje",
-      "Gem emballagen"
+      {
+        "titel": "Fjern giften",
+        "info": "Hvis det er giftige dampe, bringes personen ud i frisk luft. Hvis det er kemikalier på huden eller i øjnene, skylles der omgående med rigeligt vand."
+      },
+      {
+        "titel": "Fremkald ALDRIG opkastning",
+        "info": "Hvis personen har indtaget ætsende stoffer eller petroleumsprodukter, kan opkastning brænde eller skade svælget og lungerne endnu en gang på vejen op."
+      },
+      {
+        "titel": "Fortynd giften",
+        "info": "Hvis personen er helt vågen og har drukket noget giftigt, kan du give dem et lille glas vand eller mælk for at fortynde stoffet i mavesækken."
+      },
+      {
+        "titel": "Skab stabilt sideleje",
+        "info": "Hvis personen bliver sløv eller mister bevidstheden, skal de lægges i stabilt sideleje for at sikre frie luftveje. Ring 1-1-2 omgående."
+      },
+      {
+        "titel": "Gem emballagen",
+        "info": "Tag emballagen, planten eller produktet med til lægen eller ambulancen. Ring altid til Giftlinjen på 82 12 12 12 for specifikke instrukser."
+      }
     ]
   }
 }
