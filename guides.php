@@ -46,18 +46,36 @@ $selectedId = isset($_GET['id']) ? $_GET['id'] : null;
             <?php endif; ?>
         </div>
 
-        <div class="list-group">
+        <div class="accordion" id="guideAccordion">
             <?php foreach ($currentGuide['trin'] as $index => $trin): ?>
-                <div class="list-group-item d-flex justify-content-between align-items-center py-3">
-                    <div>
-                        <strong><?php echo ($index + 1) . ". "; ?></strong>
-                        <?php echo $trin; ?>
+                <div class="accordion-item mb-2 border border-1 rounded shadow-sm">
+
+                    <h2 class="accordion-header" id="heading-<?php echo $index; ?>">
+                        <button class="accordion-button collapsed bg-white text-dark py-3 d-flex justify-content-between align-items-center"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapse-<?php echo $index; ?>"
+                                aria-expanded="false"
+                                aria-controls="collapse-<?php echo $index; ?>">
+                            <div>
+                                <strong><?php echo ($index + 1) . ". "; ?></strong>
+                                <?php echo $trin['titel']; ?>
+                            </div>
+                        </button>
+                    </h2>
+
+                    <div id="collapse-<?php echo $index; ?>"
+                         class="accordion-collapse collapse"
+                         aria-labelledby="heading-<?php echo $index; ?>"
+                         data-bs-parent="#guideAccordion">
+                        <div class="accordion-body bg-light text-muted border-top">
+                            <?php echo $trin['info']; ?>
+                        </div>
                     </div>
-                    <i class="fas fa-arrow-down text-muted small btn"></i>
+
                 </div>
             <?php endforeach; ?>
         </div>
-    </div>
     <div class="py-4"></div>
 
 <?php else:
