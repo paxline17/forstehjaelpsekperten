@@ -38,10 +38,6 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
   transform: rotate(90deg);
 }
 
-.cursor-pointer{
-  cursor: pointer;
-}
-
 body{
   font-family: "Roboto", "sans-serif";
 }
@@ -97,16 +93,16 @@ body{
 .game-board{
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
+  gap: 20px;
   max-width: 750px;
-  margin-bottom: 30px;
+  margin: 20px auto 40px auto;
 }
 
 @media (max-width: 576px) {
   .game-board{
     grid-template-columns: repeat(2,1fr);
-    gap: 10px;
-    max-width: 340px;
+    gap: 24px;
+    max-width: 320px;
   }
   .memoryH1 {
     font-size: 1.3rem;
@@ -150,8 +146,14 @@ body{
 .card-front{
   background: white;
   color: #850b2e;
-  font-size: 2.5em;
   border: 2px solid #EDEDED;
+  padding: 12px;
+}
+
+.card-front img{
+  width: 95%;
+  height: 95%;
+  object-fit: contain;
 }
 
 .card-back{
@@ -167,10 +169,6 @@ body{
   object-fit: cover;
 }
 
-.controls{
-  text-align: center;
-}
-
 .btn-win-retry{
   background: #800020;
   color: white;
@@ -183,7 +181,6 @@ body{
   }
 }
 
-
 .modal-content{
   animation: bounce 0.4s ease-out;
 }
@@ -195,36 +192,42 @@ body{
 }
 
 .match-card-word, .match-card-image{
-  height: 65px;
+  width: 100%;
+  height: 85px;
+  padding: 4px;
+  margin-bottom: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease-in-out  ;
-  box-shadow: 0 2px 4px rabg(0,0,0,0.05);
-  background-color: #fff;
-  border: 2px solid #dee2e6;
-  border-radius: 8px;
+  box-sizing: border-box;
 
-  &:hover:not(.matched-done){
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
 }
 
-.match-card-image{
-  padding: 8px;
+.match-card-word.border-primary, .match-card-image.border-primary{
+  border: #027d7f;
+  background-color: #e6f2f2;
+}
+
+.match-card-word {
+  font-size: 0.85rem;
+  line-height: 1.2;
+  word-break: break-word;
 }
 
 .match-card-image img{
-  max-width:  100%;
-  max-height: 100%;
+  width:  100%;
+  height: 100%;
+  max-width: 90%;
+  max-height: 75px;
   object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 .matched-done{
   cursor: not-allowed;
   opacity: 0.6;
-  border-color: #28a745;
-  background-color: #d4edda
+  border-color: #28a746;
+  background-color: #d4edda;
 }
 
