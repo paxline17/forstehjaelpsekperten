@@ -27,6 +27,53 @@ require "settings/init.php";
 
 <body class="bg-light pb-5">
 
+    <div class="wrapper">
+        <h1>Signup</h1>
+        <form>
+            <div>
+                <label for="firstname-input">
+                    <i class="fa-solid fa-user"></i>
+                </label>
+                <input required type="text" name="firstname" id="firstname-input" placeholder="Fornavn">
+            </div>
+
+            <div>
+                <label for="email-input">
+                    <i class="fa-solid fa-envelope"></i>
+                </label>
+                <input required type="email" name="email" id="email-input" placeholder="Email">
+            </div>
+
+            <div>
+                <label for="password-input">
+                    <i class="fa-solid fa-lock"></i>
+                </label>
+                <input required type="password" name="password" id="password-input" placeholder="Adgangskode">
+            </div>
+
+            <div>
+                <label for="repeat-password-input">
+                    <i class="fa-solid fa-lock"></i>
+                </label>
+                <input required type="password" name="repeat-password" id="repeat-password-input" placeholder="Gentag Adgangskode">
+            </div>
+
+            <button type="submit">Signup</button>
+
+        </form>
+        <p>Har du allerede en konto?</p>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div id="homePageContent" class="d-none">
+
     <div>
     <img src="images/logozoe.svg" alt="Førstehjælpsexperten logo" class="d-block mx-auto w-50" style="height: 130px;">
     </div>
