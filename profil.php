@@ -292,13 +292,13 @@ include("includes/navbar.php" );
         const matchData = JSON.parse(localStorage.getItem('match_highscore'));
 
         if (memoryData){
-            document.getElementById('profilMemoryScore').textContent = memoryData.score + "point";
-            document.getElementById('profilMemoryTime').textContent = memoryData.time;
+            document.getElementById('profilMemoryScore').textContent = memoryData.score + " point";
+            document.getElementById('profilMemoryTime').textContent = memoryData.time || memoryData.finalTimeText || "--:--";
         }
 
         if (matchData){
-            document.getElementById('profilMatchScore').textContent = matchData.score + "point";
-            document.getElementById('profilMatchTime').textContent = matchData.time;
+            document.getElementById('profilMatchScore').textContent = matchData.score + " point";
+            document.getElementById('profilMatchTime').textContent = matchData.time || matchData.finalTimeText || "--:--"; ;
         }
 
     });
