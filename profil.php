@@ -31,15 +31,28 @@ require "settings/init.php";
 <div class="container pt-4">
 
     <div class="text-center mb-4 mt-4 pb-3 pt-3">
-        <div class="mx-auto mb-2 fs-2">
-            <i class="fa-solid fa-user fa-2xl mb-3"></i>
+
+        <div class="position-relative d-inline-block overflow-hidden rounded-circle bg-lightgray-subtle border border-2 border-light-subtle w-25 mx-auto">
+            <div class="ratio ratio-1x1">
+               <label for="profileImageInput" class="d-flex align-items-center justify-content-center m-0 lh-1 user-select-none cursor-pointer">
+
+                   <div id="profileImageContainer" class="w-100 h-100 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-user fa-2xl"></i>
+                   </div>
+
+               </label>
+
+            </div>
+            <input type="file" id="profileImageInput" accept="image/*" class="d-none">
         </div>
-        <h5 id="profileDisplayName" class="fw-bold mb-1 fs-4">Emil Østergaard</h5>
+
+        <h5 id="profileDisplayName" class="fw-bold mb-1 mt-3 fs-4">Emil Østergaard</h5>
         <p class="small">
             <span id="profileDisplayEmail">Emil.oest@mail.dk</span>
             <span class="mx-1">|</span>
             <span id="profileDisplayPhonenumber">+45 52 40 18 39</span>
         </p>
+
     </div>
 
     <div class="row g-4 mb-5">
@@ -240,7 +253,10 @@ include("includes/navbar.php" );
 
     document.getElementById('btnDeleteProfile').addEventListener('click', function (){
         if(confirm("Er du sikker på, at di vil slette din profil? Dette kan ikke fortrydes.")){
-            localStorage.removeItem('user_profile_name')
+            localStorage.removeItem('user_profile_name');
+            localStorage.removeItem('user_profile_email');
+            localStorage.removeItem('user_profile_phone');
+            localStorage.removeItem('user_profile_image');
             alert("Profil markeret som slettet!");
         }
     });
@@ -267,11 +283,28 @@ include("includes/navbar.php" );
         sunIcon.classList.replace('text-dark', 'text-muted');
     });
 
+    document.getElementById('profileImageInput').addEventListener('change', function (e){
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (event){
+                const base64Image = event.target.result;
+                localStorage.setItem('user_profile_image', base64Image);
+
+                document.getElementById('profileImageContainer').innerHTML =
+                    '<img src="' + base64Image + '" class="w-100 h-100 rounded-circle object-fit-cover">';
+            };
+            reader.readAsDateURL(file);
+        }
+    });
+
+
     document.addEventListener("DOMContentLoaded", function (){
 
         const savedName = localStorage.getItem('user_profile_name');
         const savedEmail = localStorage.getItem('user_profile_email');
         const savedPhone = localStorage.getItem('user_profile_phone');
+        const savedImage = localStorage.getItem('user-profile-image');
 
         if (savedName){
             document.getElementById('profileDisplayName').textContent = savedName;
@@ -286,6 +319,11 @@ include("includes/navbar.php" );
         if (savedPhone){
             document.getElementById('profileDisplayPhonenumber').textContent = savedPhone;
             document.getElementById('inputPhoneNumber').value = savedPhone;
+        }
+
+        if (savedImage){
+            document.getElementById('profileImageContainer').innerHTML =
+                '<img src="' + base64Image + '" class="w-100 h-100 rounded-circle object-fit-cover">';
         }
 
         const memoryData = JSON.parse(localStorage.getItem('memory_highscore'));
