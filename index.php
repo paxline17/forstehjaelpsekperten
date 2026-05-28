@@ -35,7 +35,7 @@ require "settings/init.php";
 
     <div class="text-center mb-4 pb-3">
         <h1 class="fs-2 fw-normal text-dark mb-1">Velkommen</h1>
-        <h2 class="fs-2 fw-semibold text-dark">Emil</h2>
+        <h2 id="userGreetingName" class="fs-2 fw-semibold text-dark"></h2>
     </div>
 
     <div class="row justify-content-center mb-4">
@@ -134,7 +134,17 @@ include("includes/navbar.php" );
         myDiv.innerHTML = getRandomTipsText();
     }
 
-    window.onload = loadTipText;
+    document.addEventListener("DOMContentLoaded", function (){
+        loadTipText();
+
+        const savedName = localStorage.getItem('user_profile_name');
+        if (savedName){
+            const firstName = savedName.split(' ')[0]
+            document.getElementById('userGreetingName').textContent = firstName;
+        }
+
+    });
+
 
 
 </script>

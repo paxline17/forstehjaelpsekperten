@@ -224,12 +224,15 @@ include("includes/navbar.php" );
 
         if (newName.trim() !==""){
             document.getElementById('profileDisplayName').textContent = newName;
+            localStorage.setItem('user_profile_name', newName);
         }
         if (newEmail.trim() !==""){
             document.getElementById('profileDisplayEmail').textContent = newEmail;
+            localStorage.setItem('user_profile_email', newEmail);
         }
         if (newPhonenumber.trim() !==""){
             document.getElementById('profileDisplayPhonenumber').textContent = newPhonenumber;
+            localStorage.setItem('user_profile_phone', newPhonenumber);
         }
 
         alert("Profilen blev opdateret");
@@ -237,6 +240,7 @@ include("includes/navbar.php" );
 
     document.getElementById('btnDeleteProfile').addEventListener('click', function (){
         if(confirm("Er du sikker på, at di vil slette din profil? Dette kan ikke fortrydes.")){
+            localStorage.removeItem('user_profile_name')
             alert("Profil markeret som slettet!");
         }
     });
@@ -264,6 +268,25 @@ include("includes/navbar.php" );
     });
 
     document.addEventListener("DOMContentLoaded", function (){
+
+        const savedName = localStorage.getItem('user_profile_name');
+        const savedEmail = localStorage.getItem('user_profile_email');
+        const savedPhone = localStorage.getItem('user_profile_phone');
+
+        if (savedName){
+            document.getElementById('profileDisplayName').textContent = savedName;
+            document.getElementById('inputName').value = savedName;
+        }
+
+        if (savedEmail){
+            document.getElementById('profileDisplayEmail').textContent = savedEmail;
+            document.getElementById('inputEmail').value = savedEmail;
+        }
+
+        if (savedPhone){
+            document.getElementById('profileDisplayPhonenumber').textContent = savedPhone;
+            document.getElementById('inputPhoneNumber').value = savedPhone;
+        }
 
         const memoryData = JSON.parse(localStorage.getItem('memory_highscore'));
         const matchData = JSON.parse(localStorage.getItem('match_highscore'));
