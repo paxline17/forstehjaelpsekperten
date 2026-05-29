@@ -25,7 +25,7 @@ require "settings/init.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body class="bg-light pb-5">
+<body>
 
     <div class="login-screen d-flex align-items-center justify-content-center p-3">
 
@@ -74,7 +74,7 @@ require "settings/init.php";
 
                     <div class="input-group-custom d-flex align-items-center bg-light border border-2 border-transparent rounded-pill px-3 py-2 mb-3">
                         <i class="fa-solid fa-lock text-secondary me-2"></i>
-                        <input type="password" id="regPasswordConform" placeholder="Gentag Adgangskode" class="w-100 border-0 bg-transparent shadow-none">
+                        <input type="password" id="regPasswordConfirm" placeholder="Gentag Adgangskode" class="w-100 border-0 bg-transparent shadow-none">
                     </div>
 
                     <button type="submit" class="btn btn-secondary rounded-pill w-100 fw-bold py-2 mt-2">Opret ny konto</button>
@@ -87,12 +87,6 @@ require "settings/init.php";
             </div>
         </div>
     </div>
-
-
-
-
-
-
 
 
     <div id="homePageContent" class="d-none">
@@ -161,6 +155,147 @@ include("includes/navbar.php" );
 
 
 <script>
+
+    document.addEventListener("DOMContentLoaded", function (){
+        const loginSection = document.getElementById('loginSection');
+        const registerSection = document.getElementById('registerSection');
+        const errorMessage = document.getElementById('errorMessage');
+
+        if (localStorage.getItem('user_logged_in') === 'true'){
+            document.getElementById('loginSection').parentElement.parentElement.classList.add('d-none');
+            document.getElementById('homePageContent').classList.remove('d-none');
+        }
+
+        document.getElementById('btnGoToRegister').addEventListener('click', function (){
+            clearErrors();
+            loginSection.classList.add('d-none');
+            registerSection.classList.remove('d-none');
+        });
+
+        document.getElementById('btnGoToLogin').addEventListener('click', function (){
+            clearErrors();
+            registerSection.classList.add('d-none');
+            loginSection.classList.remove('d-none');
+        });
+
+        document.getElementById('form-login').addEventListener('submit', function (e){
+           e.preventDefault();
+           clearErrors();
+
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            let errors = [];
+
+            if (email === ""){
+                errors.push("E-mail skal udfyldes");
+                document.getElementById('loginEmail').parentElement.classList.add('incorrect');
+            }
+
+            if (password === ""){
+                errors.push("Adgangskode skal udfyldes");
+                document.getElementById('loginPassword').parentElement.classList.add('incorrect');
+            }
+
+            if (errors.length > 0){
+                errorMessage.innerText = errors.join(". ");
+                return;
+            }
+
+            const storedEmail = localStorage.getItem('user_profile_email');
+            const storedPassword = localStorage.getItem('user_profile_password');
+
+            if (email === storedEmail && password === storedPassword){
+                localStorage.setItem('user_logged_in', 'true');
+
+                document.getElementById('loginSection').parentElement.parentElement.classList.add('d-none');
+                document.getElementById('homePageContent').classList.remove('d-none');
+                loadTipText();
+
+                const savedName = localStorage.getItem('user_profile_name');
+                if (savedName) {
+                    document.getElementById('userGreetingName').textContent = savedName.split(' ')[0];
+                }
+
+            } else {
+                errorMessage.innerText = "Forkert email eller adgangskode.";
+            }
+        });
+
+        document.getElementById('form-register').addEventListener('submit', function (e){
+           e.preventDefault();
+           clearErrors();
+
+           const name = document.getElementById('regName').value.trim();
+           const email = document.getElementById('regEmail').value.trim();
+           const password = document.getElementById('regPassword').value.trim();
+           const passwordConfirm = document.getElementById('regPasswordConfirm').value.trim();
+           let errors = [];
+
+           if (name === ""){
+               errors.push("Navn er påkrævet");
+               document.getElementById('regName').parentElement.classList.add('incorrect');
+           }
+           if (email === ""){
+                errors.push("E-mail er påkrævet");
+                document.getElementById('regEmail').parentElement.classList.add('incorrect');
+           }
+           if (password === ""){
+                errors.push("Adgangskode skal udfyldes");
+                document.getElementById('regPassword').parentElement.classList.add('incorrect');
+           }
+           if (passwordConfirm === ""){
+                errors.push("Du skal gentage adgangskoden");
+                document.getElementById('regPasswordConfirm').parentElement.classList.add('incorrect');
+           } else if (password !== passwordConfirm){
+               errors.push("Adgangskoderne er ikke ens");
+               document.getElementById('regPassword').parentElement.classList.add('incorrect');
+               document.getElementById('regPasswordConfirm').parentElement.classList.add('incorrect');
+           }
+
+           if (errors.length > 0){
+               errorMessage.innerText = errors.join(". ");
+               return;
+           }
+
+           localStorage.setItem('user_profile_name', name);
+           localStorage.setItem('user_profile_email', email);
+           localStorage.setItem('user_profile_password', password);
+           localStorage.setItem('user_logged_in', 'true');
+
+            document.getElementById('registerSection').parentElement.parentElement.classList.add('d-none');
+            document.getElementById('homePageContent').classList.remove('d-none');
+            loadTipText();
+            document.getElementById('userGreetingName').textContent = name.split(' ')[0];
+        });
+
+        const allInputs = [
+            document.getElementById('loginEmail'),
+            document.getElementById('loginPassword'),
+            document.getElementById('regName'),
+            document.getElementById('regEmail'),
+            document.getElementById('regPassword'),
+            document.getElementById('regPasswordConfirm')
+        ];
+
+        allInputs.forEach(input => {
+           if(input) {
+               input.addEventListener('input', function (){
+                  if (this.parentElement.classList.contains('incorrect')){
+                      this.parentElement.classList.remove('incorrect');
+                  }
+                  errorMessage.innerText = "";
+               });
+           }
+        });
+
+        function clearErrors(){
+            errorMessage.innerText = "";
+            allInputs.forEach(input =>{
+                if(input) input.parentElement.classList.remove('incorrect');
+            });
+        }
+    });
+
     const textSelect = [
         '[ TIP: Stop altid op og få overblik over ulykkesstedet, før du handler ]',
         '[ TIP: Sikr dig selv først – du kan ikke hjælpe andre, hvis du selv kommer til skade ]',
