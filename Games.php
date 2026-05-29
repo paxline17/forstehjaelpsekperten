@@ -512,11 +512,11 @@ require "settings/init.php";
 
             if (currentGameType === 'memory') {
                 if (score > memoryHighscore.score || (score === memoryHighscore.score && seconds < memoryHighscore.seconds)){
-                    localStorage.setItem('memory_highscore', JSON.stringify({score: score, finalTimeText, seconds: seconds}));
+                    localStorage.setItem('memory_highscore', JSON.stringify({score: score, time: finalTimeText, seconds: seconds}));
                 }
             } else if (currentGameType === 'matchWordImage'){
                 if (score > matchHighscore.score || (score === matchHighscore.score && seconds < matchHighscore.seconds)){
-                    localStorage.setItem('match_highscore', JSON.stringify({score: score, finalTimeText, seconds: seconds}));
+                    localStorage.setItem('match_highscore', JSON.stringify({score: score, time: finalTimeText, seconds: seconds}));
                 }
             }
 
