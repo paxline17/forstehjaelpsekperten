@@ -10,7 +10,7 @@ require "settings/init.php";
 <head>
     <meta charset="utf-8">
     
-    <title>Førstehjælpsexperten</title>
+    <title>Førstehjælpseksperten</title>
     
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
@@ -27,43 +27,66 @@ require "settings/init.php";
 
 <body class="bg-light pb-5">
 
-    <div class="wrapper">
-        <h1>Signup</h1>
-        <form>
-            <div>
-                <label for="firstname-input">
-                    <i class="fa-solid fa-user"></i>
-                </label>
-                <input required type="text" name="firstname" id="firstname-input" placeholder="Fornavn">
+    <div class="login-screen d-flex align-items-center justify-content-center p-3">
+
+        <div class="login-card bg-white text-center p-4 p-sm-5 rounded-4 shadow-lg">
+
+            <div class="mb-4">
+                <img src="images/Logo.svg" alt="Førstehjælpseksperten logo" class="login-logo d-block mx-auto mb-2">
+                <h1 class="fs-4 fw-bold text-dark m-0">Førstehjælpseksperten</h1>
             </div>
 
-            <div>
-                <label for="email-input">
-                    <i class="fa-solid fa-envelope"></i>
-                </label>
-                <input required type="email" name="email" id="email-input" placeholder="Email">
+            <div id="errorMessage" class="text-danger small mb-3 fw-bold"></div>
+
+            <div id="loginSection">
+                <form id="form-login">
+                    <div class="input-group-custom d-flex align-items-center bg-light border border-2 border-transparent rounded-pill px-3 py-2 mb-3">
+                        <i class="fa-solid fa-envelope text-secondary me-2"></i>
+                        <input type="text" id="loginEmail" placeholder="E-mail" class="w-100 border-0 bg-transparent shadow-none">
+                    </div>
+
+                    <div class="input-group-custom d-flex align-items-center bg-light border border-2 border-transparent rounded-pill px-3 py-2 mb-3">
+                        <i class="fa-solid fa-lock text-secondary me-2"></i>
+                        <input type="password" id="loginPassword" placeholder="Adgangskode" class="w-100 border-0 bg-transparent shadow-none">
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary rounded-pill w-100 fw-bold py-2 mt-2">Login</button>
+                    <button type="button" id="btnGoToRegister" class="btn btn-primary text-white rounded-pill w-100 fw-bold py-2 mt-2">Opret ny konto</button>
+                </form>
             </div>
 
-            <div>
-                <label for="password-input">
-                    <i class="fa-solid fa-lock"></i>
-                </label>
-                <input required type="password" name="password" id="password-input" placeholder="Adgangskode">
+            <div id="registerSection" class="d-none">
+                <form id="form-register">
+                    <div class="input-group-custom d-flex align-items-center bg-light border border-2 border-transparent rounded-pill px-3 py-2 mb-3">
+                        <i class="fa-solid fa-user text-secondary me-2"></i>
+                        <input type="text" id="regName" placeholder="Navn" class="w-100 border-0 bg-transparent shadow-none">
+                    </div>
+
+                    <div class="input-group-custom d-flex align-items-center bg-light border border-2 border-transparent rounded-pill px-3 py-2 mb-3">
+                        <i class="fa-solid fa-envelope text-secondary me-2"></i>
+                        <input type="text" id="regEmail" placeholder="Email" class="w-100 border-0 bg-transparent shadow-none">
+                    </div>
+
+                    <div class="input-group-custom d-flex align-items-center bg-light border border-2 border-transparent rounded-pill px-3 py-2 mb-3">
+                        <i class="fa-solid fa-lock text-secondary me-2"></i>
+                        <input type="password" id="regPassword" placeholder="Adgangskode" class="w-100 border-0 bg-transparent shadow-none">
+                    </div>
+
+                    <div class="input-group-custom d-flex align-items-center bg-light border border-2 border-transparent rounded-pill px-3 py-2 mb-3">
+                        <i class="fa-solid fa-lock text-secondary me-2"></i>
+                        <input type="password" id="regPasswordConform" placeholder="Gentag Adgangskode" class="w-100 border-0 bg-transparent shadow-none">
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary rounded-pill w-100 fw-bold py-2 mt-2">Opret ny konto</button>
+
+                    <p class="small mt-3 mb-0">
+                        Har du allerede en konto?
+                        <button type="button" id="btnGoToLogin" class="btn-text-link link-info border-0 bg-transparent p-0 fw-bold text-decoration-none">Log ind</button>
+                    </p>
+                </form>
             </div>
-
-            <div>
-                <label for="repeat-password-input">
-                    <i class="fa-solid fa-lock"></i>
-                </label>
-                <input required type="password" name="repeat-password" id="repeat-password-input" placeholder="Gentag Adgangskode">
-            </div>
-
-            <button type="submit">Signup</button>
-
-        </form>
-        <p>Har du allerede en konto?</p>
+        </div>
     </div>
-
 
 
 
