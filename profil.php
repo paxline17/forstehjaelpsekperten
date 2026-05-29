@@ -46,11 +46,11 @@ require "settings/init.php";
             <input type="file" id="profileImageInput" accept="image/*" class="d-none">
         </div>
 
-        <h5 id="profileDisplayName" class="fw-bold mb-1 mt-3 fs-4">Emil Østergaard</h5>
+        <h5 id="profileDisplayName" class="fw-bold mb-1 mt-3 fs-4">Henter navn...</h5>
         <p class="small">
-            <span id="profileDisplayEmail">Emil.oest@mail.dk</span>
+            <span id="profileDisplayEmail">...</span>
             <span class="mx-1">|</span>
-            <span id="profileDisplayPhonenumber">+45 52 40 18 39</span>
+            <span id="profileDisplayPhonenumber">...</span>
         </p>
 
     </div>
@@ -70,7 +70,7 @@ require "settings/init.php";
                             data-bs-toggle="collapse"
                             data-bs-target="#editProfile"
                             aria-expanded="false"
-                        <span>Ændre profil</span>
+                        <span>Ændre profiloplysninger</span>
                         <i class="fa-solid fa-arrow-right rotate-icon"></i>
                     </button>
 
@@ -79,21 +79,36 @@ require "settings/init.php";
                             <form id="form-edit-profile">
                                 <div class="mb-3">
                                     <label for="inputName" class="form-label small fw-bold">Nyt navn</label>
-                                    <input type="text" class="form-control form-control-sm" id="inputName" value="Emil Østergaard" required>
+                                    <input type="text" class="form-control form-control-sm" id="inputName" value="" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="inputEmail" class="form-label small fw-bold">Ny e-mail</label>
-                                    <input type="text" class="form-control form-control-sm" id="inputEmail" value="emil.oest@mail.dk" required>
+                                    <input type="text" class="form-control form-control-sm" id="inputEmail" value="" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="inputPhoneNumber" class="form-label small fw-bold">Nyt telefonnummer</label>
-                                    <input type="text" class="form-control form-control-sm" id="inputPhoneNumber" value="+45 52 40 18 39" required>
+                                    <input type="text" class="form-control form-control-sm" id="inputPhoneNumber" value="" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold small text-dark d-block text-start">Nuværende adgangskode (Skal udfyldes for at gemme)</label>
+                                    <input type="password" id="currentPassword" class="form-control" placeholder="Indtast nuværende adgangskode">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold small text-dark d-block text-start">Ny adgangskode (Udfyld kun hvis den skal ændres)</label>
+                                    <input type="password" id="newPassword" class="form-control" placeholder="Mindst 4 tegn">
                                 </div>
 
                                 <div class="d-flex justify-content-between align-items-center mt-4">
-                                    <button type="button" class="btn btn-outline-danger btn-sm" id="btnDeleteProfile">
-                                        <i class="fa-solid fa-trash me-1"></i> Slet Profil
-                                    </button>
+                                    <div class="d-flex gap-2">
+                                        <button type="button" id="btnLogout" class="btn btn-outline-danger btn-sm rounded px-3">
+                                            <i class="fa-solid fa-right-from-bracket me-1"></i> Log ud
+                                        </button>
+                                        <button type="button" id="btnDeleteAccount" class="btn btn-outline-secondary btn-sm rounded px-3">
+                                            <i class="fa-solid fa-trash me-1"></i> Slet Profil
+                                        </button>
+                                    </div>
 
                                     <button type="submit" class="btn btn-dark btn-sm px-3">Gem ændringer</button>
                                 </div>
@@ -219,6 +234,7 @@ include("includes/navbar.php" );
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+
     document.getElementById('notification').addEventListener('click', function (){
         const statusElement = this.querySelector('.status');
 
@@ -229,37 +245,6 @@ include("includes/navbar.php" );
         }
     });
 
-    document.getElementById('form-edit-profile').addEventListener('submit',function (e){
-        e.preventDefault();
-        const newName = document.getElementById('inputName').value;
-        const newEmail = document.getElementById('inputEmail').value;
-        const newPhonenumber = document.getElementById('inputPhoneNumber').value;
-
-        if (newName.trim() !==""){
-            document.getElementById('profileDisplayName').textContent = newName;
-            localStorage.setItem('user_profile_name', newName);
-        }
-        if (newEmail.trim() !==""){
-            document.getElementById('profileDisplayEmail').textContent = newEmail;
-            localStorage.setItem('user_profile_email', newEmail);
-        }
-        if (newPhonenumber.trim() !==""){
-            document.getElementById('profileDisplayPhonenumber').textContent = newPhonenumber;
-            localStorage.setItem('user_profile_phone', newPhonenumber);
-        }
-
-        alert("Profilen blev opdateret");
-    });
-
-    document.getElementById('btnDeleteProfile').addEventListener('click', function (){
-        if(confirm("Er du sikker på, at di vil slette din profil? Dette kan ikke fortrydes.")){
-            localStorage.removeItem('user_profile_name');
-            localStorage.removeItem('user_profile_email');
-            localStorage.removeItem('user_profile_phone');
-            localStorage.removeItem('user_profile_image');
-            alert("Profil markeret som slettet!");
-        }
-    });
 
     document.querySelectorAll('.lang-option').forEach(option => {
         option.addEventListener('click', function (e){
@@ -288,42 +273,40 @@ include("includes/navbar.php" );
         if (file) {
             const reader = new FileReader();
             reader.onload = function (event){
-                const base64Image = event.target.result;
-                localStorage.setItem('user_profile_image', base64Image);
+                const savedImage = event.target.result;
+                localStorage.setItem('user_profile_image', savedImage);
 
                 document.getElementById('profileImageContainer').innerHTML =
-                    '<img src="' + base64Image + '" class="w-100 h-100 rounded-circle object-fit-cover">';
+                    '<img src="' + savedImage + '" class="w-100 h-100 rounded-circle object-fit-cover">';
             };
-            reader.readAsDateURL(file);
+            reader.readAsDataURL(file);
         }
     });
 
 
     document.addEventListener("DOMContentLoaded", function (){
 
-        const savedName = localStorage.getItem('user_profile_name');
-        const savedEmail = localStorage.getItem('user_profile_email');
-        const savedPhone = localStorage.getItem('user_profile_phone');
-        const savedImage = localStorage.getItem('user-profile-image');
-
-        if (savedName){
-            document.getElementById('profileDisplayName').textContent = savedName;
-            document.getElementById('inputName').value = savedName;
+        if (localStorage.getItem('user_logged_in') !== 'true'){
+            window.location.href = "index.php";
+            return;
         }
 
-        if (savedEmail){
-            document.getElementById('profileDisplayEmail').textContent = savedEmail;
-            document.getElementById('inputEmail').value = savedEmail;
-        }
+        const savedName = localStorage.getItem('user_profile_name') || "";
+        const savedEmail = localStorage.getItem('user_profile_email') || "";
+        const savedPhone = localStorage.getItem('user_profile_phone') || "";
+        const savedImage = localStorage.getItem('user_profile_image');
 
-        if (savedPhone){
-            document.getElementById('profileDisplayPhonenumber').textContent = savedPhone;
-            document.getElementById('inputPhoneNumber').value = savedPhone;
-        }
+        document.getElementById('profileDisplayName').textContent = savedName || "Navn ikke sat";
+        document.getElementById('profileDisplayEmail').textContent = savedEmail || "Ingen e-mail";
+        document.getElementById('profileDisplayPhonenumber').textContent = savedPhone || "Intet nummer";
+
+        document.getElementById('inputName').value = savedName;
+        document.getElementById('inputEmail').value = savedEmail;
+        document.getElementById('inputPhoneNumber').value = savedPhone;
 
         if (savedImage){
             document.getElementById('profileImageContainer').innerHTML =
-                '<img src="' + base64Image + '" class="w-100 h-100 rounded-circle object-fit-cover">';
+                '<img src="' + savedImage + '" class="w-100 h-100 rounded-circle object-fit-cover">';
         }
 
         const memoryData = JSON.parse(localStorage.getItem('memory_highscore'));
@@ -337,6 +320,70 @@ include("includes/navbar.php" );
         if (matchData){
             document.getElementById('profilMatchScore').textContent = matchData.score + " point";
             document.getElementById('profilMatchTime').textContent = matchData.time || matchData.finalTimeText || "--:--"; ;
+        }
+
+        document.getElementById('form-edit-profile').addEventListener('submit', function (e){
+            e.preventDefault();
+
+            const newName = document.getElementById('inputName').value.trim();
+            const newEmail = document.getElementById('inputEmail').value.trim();
+            const newPhonenumber = document.getElementById('inputPhoneNumber').value.trim();
+            const currentPasswordInput = document.getElementById('currentPassword').value.trim();
+            const newPasswordInput = document.getElementById('newPassword').value.trim();
+
+            const storedPassword = localStorage.getItem('user_profile_password');
+
+            if (newName === "" || newEmail === "") {
+                alert("Navn og e-mail skal udfyldes.");
+                return;
+            }
+
+            if (newPasswordInput !== "") {
+                if (newPasswordInput.length < 4){
+                    alert("Den nye adgangskode skal være på mindst 4 tegn.");
+                    return;
+                }
+                localStorage.setItem('user_profile_password', newPasswordInput)
+            }
+
+            document.getElementById('profileDisplayName').textContent = newName;
+            document.getElementById('profileDisplayEmail').textContent = newEmail;
+            document.getElementById('profileDisplayPhonenumber').textContent = newPhonenumber;
+
+            localStorage.setItem('user_profile_name', newName);
+            localStorage.setItem('user_profile_email', newEmail);
+            localStorage.setItem('user_profile_phone', newPhonenumber);
+
+            document.getElementById('newPassword').value = "";
+
+            alert("Profilen blev opdateret!");
+        });
+
+        const btnLogout = document.getElementById('btnLogout');
+        if (btnLogout){
+            btnLogout.addEventListener('click', function (){
+               localStorage.setItem('user_logged_in', 'false');
+               window.location.href = "index.php";
+            });
+        }
+
+        const btnDeleteAccount = document.getElementById('btnDeleteAccount');
+        if (btnDeleteAccount){
+            btnDeleteAccount.addEventListener('click', function (){
+               if (confirm("Er du sikker på, at du vil slette din profil? Dette vil nulstille alt din data og kan ikke fortrydes.")) {
+                   localStorage.removeItem('user_profile_name');
+                   localStorage.removeItem('user_profile_email');
+                   localStorage.removeItem('user_profile_phone');
+                   localStorage.removeItem('user_profile_password');
+                   localStorage.removeItem('user_profile_image');
+                   localStorage.removeItem('user_logged_in');
+                   localStorage.removeItem('memory_highscore');
+                   localStorage.removeItem('match_highscore');
+
+                   alert("Profilen er slettet!")
+                   window.location.href = "index.php";
+               }
+            });
         }
 
     });
