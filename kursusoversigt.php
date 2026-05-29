@@ -34,7 +34,7 @@ require "settings/init.php";
     <a href="#" class="text-center mb-4 text-decoration-none text-dark">[Læs mere om tilmelding her]</a>
     </p>
 
-<div class="row g-3">
+<div class="row g-5">
     <div class="col-12 col-lg-4">
         <div class="border border-dark p-3 bg-lightgray">
             <p class="text-center mb-2 ">Basal førstehjælp til børn</p>
